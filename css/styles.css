@@ -9,7 +9,6 @@
     text-align: center;
 }
 
-
 .button_tfa {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.5s;
@@ -21,3 +20,26 @@
     background-color:#555555; /* Green */
     color: rgb(212, 207, 207);
 }
+
+.tabla{
+    justify-content: center;
+    display: flex;
+}
+table {
+  width:60%;
+
+}
+table, th, td {
+  border: 2px solid rgba(255, 255, 255, 0.561);
+  border-collapse: collapse;
+}
+td {
+  padding: 10px;
+  text-align: left;
+  opacity: 0.7;
+}
+
+th {
+    padding: 20px;
+    text-align: center;
+  }
