@@ -1,0 +1,23 @@
+.body_wallpaper{
+    align-items: center;
+    background-image: url(../images/nike-football.jpeg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.842);
+    text-align: center;
+}
+
+
+.button_tfa {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.5s;
+    height: 5vh;
+    border-radius: 1vh;
+}
+
+.button_tfa:hover {
+    background-color:#555555; /* Green */
+    color: rgb(212, 207, 207);
+}
