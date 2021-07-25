@@ -1,18 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador TFA - Torneos del Futbol Argentino</title>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--Css-->
+    <link href="./css/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Simulador TFA - Torneos del Futbol Argentino </h1>
-    <button id="ingreso_equipo" onclick="ingreso_equipo()">Ingresar equipos del torneo</button>
-    <button id="mostrarTabla" onclick="mostrarTabla()">Mostrar tabla de posiciones</button>
-    <button id="ingresarVictorias" onclick="ingresarVictorias()">Ingresar victorias de los equipos</button>
-    <button id="ingresarEmpates" onclick="ingresarEmpates()">Ingresar empates de los equipos</button>
-    <button id="ingresarPerdidos" onclick="ingresarPerdidos()">Ingresar derrotas de los equipos</button>
-    <button id="actualizarPuntos" onclick="actualizarPuntos()">Actualizar puntos</button>
-    <button id="decidirCampeon" onclick="decidirCampeon()">Decidir campeon</button>
-  </body>
+    <header>
 
-  <script src="js/simuladorTAFA.js"></script>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Simulador TFA</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#lista">Equipos participantes</a>
+              <a class="nav-link" href="#">Reglamento</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="encabezado"></div>
+    </header> 
+    
+    <body>
+      <h1><br>Simulador TFA - Torneos del Futbol Argentino </h1><br><br>
+      <button id="ingreso_equipo" onclick="ingreso_equipo()">Ingresar equipos del torneo</button>
+      <button id="mostrarTabla" onclick="mostrarTabla()">Mostrar tabla de posiciones</button>
+      <button id="ingresarVictorias" onclick="ingresarVictorias()">Ingresar victorias de los equipos</button>
+      <button id="ingresarEmpates" onclick="ingresarEmpates()">Ingresar empates de los equipos</button>
+      <button id="ingresarPerdidos" onclick="ingresarPerdidos()">Ingresar derrotas de los equipos</button>
+      <button id="actualizarPuntos" onclick="actualizarPuntos()">Actualizar puntos</button>
+      <button id="decidirCampeon" onclick="decidirCampeon()">Decidir campeon</button>
+    </body>
+
+    <script src="js/simuladorTAFA.js"></script>
+    
+    </main>
+
+    
+    <script src="./js/main.js"></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
 </html>
