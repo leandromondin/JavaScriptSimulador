@@ -1,3 +1,8 @@
+* {
+  font-family: 'Roboto', sans-serif;;
+}
+
+
 .body_wallpaper{
     align-items: center;
     background-image: url(../images/nike-football.jpeg);
@@ -17,7 +22,7 @@
 }
 
 .button_tfa:hover {
-    background-color:#555555; /* Green */
+    background-color:#3011ddc9; /* Green */
     color: rgb(212, 207, 207);
 }
 

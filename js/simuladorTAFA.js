@@ -49,12 +49,13 @@ function validar_nombre_equipo(i){//Para validar que solo sean los nombres de eq
 
 
 function mostrarTabla(){//Funcion mostrar tabla con equipos
+    actualizarPuntos()
     equipos.sort((a, b) => b.puntos - a.puntos);
-    tabla = tabla = "|      Equipo      |      Puntos      \n\n" 
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
-        tabla = tabla + "|      " + equipos[i].nombre + "      |      " + equipos[i].puntos + "\n";
-    }
-    alert(tabla);
+        let elementTable = document.getElementById ("pointsTeam0" + (i+1));
+        let nodoPuntosEquipo = document.createTextNode(equipos[i].puntos)
+        elementTable.appendChild(nodoPuntosEquipo)
+    }  
 }
 
 
@@ -97,6 +98,9 @@ function ingreso_equipo(){
     for (let i = 1; i <= CANTIDAD_EQUIPOS; i++) {
         let nombre_equipo = validar_nombre_equipo(i)
         equipos[i-1].nombre=nombre_equipo;//Agrego un equipo al array de equipos del torneo.
+        let elementTable = document.getElementById ("nameTeam0" + i);
+        let NodoNombreEquipo = document.createTextNode(nombre_equipo)
+        elementTable.appendChild(NodoNombreEquipo)
     }
 }
 

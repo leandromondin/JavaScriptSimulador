@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador TFA - Torneos del Futbol Argentino</title>
+    <title>Simulador UEFA </title>
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!--Css-->
     <link href="./css/styles.css" rel="stylesheet" type="text/css">
   </head>
@@ -15,7 +19,7 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Simulador TFA</a>
+          <a class="navbar-brand" href="#">Simulador UEFA</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -34,17 +38,16 @@
     </header> 
     
     <body class="body_wallpaper">
-      <h1><br>Simulador TFA - Torneos del Futbol Argentino </h1><br><br>
+      <h1><br>Simulador UEFA - CHAMPIONS LEAGUE </h1><br><br>
       <button class="button_tfa" id="ingreso_equipo" onclick="ingreso_equipo()">Ingresar equipos del torneo</button>
       <button class="button_tfa" id="mostrarTabla" onclick="mostrarTabla()">Mostrar tabla de posiciones</button>
       <button class="button_tfa" id="ingresarVictorias" onclick="ingresarVictorias()">Ingresar victorias de los equipos</button>
       <button class="button_tfa" id="ingresarEmpates" onclick="ingresarEmpates()">Ingresar empates de los equipos</button>
       <button class="button_tfa" id="ingresarPerdidos" onclick="ingresarPerdidos()">Ingresar derrotas de los equipos</button>
-      <button class="button_tfa" id="actualizarPuntos" onclick="actualizarPuntos()">Actualizar puntos</button>
       <button class="button_tfa" id="decidirCampeon" onclick="decidirCampeon()">Decidir campeon</button>
       <br><br><br>
       
-      Liga Profesional Argentina<br><br><br>
+      UEFA Champions League 2022<br><br><br>
 
       <div class="tabla">
         <table>
@@ -52,13 +55,13 @@
             <th>Equipo</th><th>Puntos</th> <th>PJ</th>
           </tr>
           <tr>
-            <td>Boca</td><td>0</td><td>0</td>
+            <td id="nameTeam01"></td><td id="pointsTeam01"></td><td id="matchsTeam01"></td>
           </tr>
           <tr>
-            <td>Racing</td><td>0</td><td>0</td>
+            <td id="nameTeam02"></td><td id="pointsTeam02"></td><td id="matchsTeam02"></td>
           </tr>
           <tr>
-            <td>River</td><td>0</td><td>0</td>
+            <td id="nameTeam03"></td><td id="pointsTeam03"></td><td id="matchsTeam03"></td>
           </tr>
         </table>
         <br>
@@ -76,7 +79,5 @@
 
     
     <script src="./js/main.js"></script>
-    <!--Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
