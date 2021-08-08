@@ -16,10 +16,11 @@ class Equipo{
         this.goles_favor = 0;
         this.goles_contra = 0;
         this.puntos = 0;
+        this.fixture = [0,0,0];
     }
 
     actualizacion_puntos(){//Esta función nos permitirá actualizar los puntos que tenga cada equipo en cualquier momento que necesitemos.
-        this.puntos = (this.partidos_ganados*PARTIDO_GANADO) + (this.partidos_empatados*PARTIDO_EMPATADO) + (this.partidos_perdidos*PARTIDO_PERDIDO);
+        this.puntos = this.fixture[0] + this.fixture[1] + this.fixture[2];
     }
     gano_partido(){//Este metodo nos permitirá sumar un partido ganado.
         this.partidos_ganados++;
@@ -50,11 +51,17 @@ function validar_nombre_equipo(i){//Para validar que solo sean los nombres de eq
 
 function mostrarTabla(){//Funcion mostrar tabla con equipos
     actualizarPuntos()
-    equipos.sort((a, b) => b.puntos - a.puntos);
+    // equipos.sort((a, b) => b.puntos - a.puntos);
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         let elementTable = document.getElementById ("pointsTeam0" + (i+1));
+
+        while (elementTable.firstChild) {
+            elementTable.removeChild(elementTable.firstChild);
+        }
         let nodoPuntosEquipo = document.createTextNode(equipos[i].puntos)
         elementTable.appendChild(nodoPuntosEquipo)
+        
+        
     }  
 }
 
@@ -105,10 +112,94 @@ function ingreso_equipo(){
 }
 
 
-
 const equipos = []; //Instancio y creo todos los equipos que necesito como array de equipos (variable global)
 for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
     const equipo = new Equipo(); 
     equipos.push(equipo);//Agrego un equipo al array de equipos del torneo.
 }
 
+
+// Logica de comparacion Fecha 1 del Fixture
+const gfBarcaP1  = document.getElementById("P1-BARCA-GF");
+const gfBayerP1  = document.getElementById("P1-BAYER-GF");
+gfBarcaP1.addEventListener('change', fecha1Update)
+gfBayerP1.addEventListener('change', fecha1Update)
+
+function fecha1Update(event){
+    if (gfBarcaP1.value>gfBayerP1.value){
+        console.log("Gano el barca");
+        equipos[0].fixture[0] = 3;
+        equipos[1].fixture[0] = 0;
+    }
+    if (gfBarcaP1.value===gfBayerP1.value){
+        console.log("Empataron");
+        equipos[0].fixture[0] = 1;
+        equipos[1].fixture[0] = 1;
+    }
+    
+    if (gfBarcaP1.value<gfBayerP1.value){
+        console.log("Gano el bayer");
+        equipos[0].fixture[0] = 0;
+        equipos[1].fixture[0] = 3;
+    }
+    actualizarPuntos()
+    mostrarTabla();
+}
+
+
+
+// Logica de comparacion Fecha 2 del Fixture
+const gfChelseaP1  = document.getElementById("P1-CHELSEA-GF");
+const gfBarcaP2  = document.getElementById("P2-BARCA-GF");
+gfChelseaP1.addEventListener('change', fecha2Update)
+gfBarcaP2.addEventListener('change', fecha2Update)
+
+function fecha2Update(event){
+    if (gfChelseaP1.value>gfBarcaP2.value){
+        console.log("Gano el chelsea");
+        equipos[2].fixture[1] = 3;
+        equipos[0].fixture[1] = 0;
+    }
+    if (gfChelseaP1.value===gfBarcaP2.value){
+        console.log("Empataron");
+        equipos[2].fixture[1] = 1;
+        equipos[0].fixture[1] = 1;
+    }
+    
+    if (gfChelseaP1.value<gfBarcaP2.value){
+        console.log("Gano el barca");
+        equipos[2].fixture[1] = 0;
+        equipos[0].fixture[1] = 3;
+    }
+    actualizarPuntos()
+    mostrarTabla();
+}
+
+// Logica de comparacion Fecha 3 del Fixture
+const gfBayerP2  = document.getElementById("P2-BAYER-GF");
+const gfChelseaP2  = document.getElementById("P2-CHELSEA-GF");
+gfBayerP2.addEventListener('change', fecha3Update)
+gfChelseaP2.addEventListener('change', fecha3Update)
+
+function fecha3Update(event){
+    if (gfBayerP2.value>gfChelseaP2.value){
+        console.log("Gano el bayer");
+        console.log(equipos[1])
+        equipos[1].fixture[2] = 3;
+        equipos[2].fixture[2] = 0;
+        console.log(equipos[1])
+    }
+    if (gfBayerP2.value===gfChelseaP2.value){
+        console.log("Empataron");
+        equipos[1].fixture[2] = 1;
+        equipos[2].fixture[2] = 1;
+    }
+    
+    if (gfBayerP2.value<gfChelseaP2.value){
+        console.log("Gano el chelsea");
+        equipos[1].fixture[2] = 0;
+        equipos[2].fixture[2] = 3;
+    }
+    actualizarPuntos()
+    mostrarTabla();
+}

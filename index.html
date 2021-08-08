@@ -39,34 +39,85 @@
     
     <body class="body_wallpaper">
       <h1><br>Simulador UEFA - CHAMPIONS LEAGUE </h1><br><br>
-      <button class="button_tfa" id="ingreso_equipo" onclick="ingreso_equipo()">Ingresar equipos del torneo</button>
-      <button class="button_tfa" id="mostrarTabla" onclick="mostrarTabla()">Mostrar tabla de posiciones</button>
-      <button class="button_tfa" id="ingresarVictorias" onclick="ingresarVictorias()">Ingresar victorias de los equipos</button>
-      <button class="button_tfa" id="ingresarEmpates" onclick="ingresarEmpates()">Ingresar empates de los equipos</button>
-      <button class="button_tfa" id="ingresarPerdidos" onclick="ingresarPerdidos()">Ingresar derrotas de los equipos</button>
       <button class="button_tfa" id="decidirCampeon" onclick="decidirCampeon()">Decidir campeon</button>
       <br><br><br>
       
       UEFA Champions League 2022<br><br><br>
 
-      <div class="tabla">
-        <table>
+      <div>
+        <table class="tabla">
           <tr>
-            <th>Equipo</th><th>Puntos</th> <th>PJ</th>
+            <th></th><th>Equipo</th><th>Puntos</th><th>PJ</th><th>GF</th><th>GC</th>
           </tr>
           <tr>
-            <td id="nameTeam01"></td><td id="pointsTeam01"></td><td id="matchsTeam01"></td>
+            <td class="icons"><img class="club_icon" src="images/club_icons/barca.png" alt="Logo del club FC Barcelona"></td>
+            <td class="teamNames" id="nameTeam01">Barcelona</td><td class="puntosFinal" id="pointsTeam01"></td>
+            <td id="matchsTeam01">-</td><td>-</td><td>-</td>
           </tr>
           <tr>
-            <td id="nameTeam02"></td><td id="pointsTeam02"></td><td id="matchsTeam02"></td>
+            <td class="icons"><img class="club_icon" src="images/club_icons/bayer.png" alt="Logo del club FC Bayer Munich"></td>
+            <td class="teamNames" id="nameTeam02">Bayer Munich</td><td class="puntosFinal" id="pointsTeam02"></td>
+            <td id="matchsTeam02">-</td><td>-</td><td>-</td>
           </tr>
           <tr>
-            <td id="nameTeam03"></td><td id="pointsTeam03"></td><td id="matchsTeam03"></td>
+            <td class="icons"><img class="club_icon" src="images/club_icons/chelsea.png" alt="Logo del club Chelsea"></td>
+            <td class="teamNames" id="nameTeam03">Chelsea</td><td class="puntosFinal" id="pointsTeam03"></td>
+            <td id="matchsTeam03">-</td><td>-</td><td>-</td>
           </tr>
         </table>
         <br>
-    </div>
+      </div>
+      <br><br> 
 
+      <div class="fecha1">
+        <table>
+          <tr>
+            <td class="icons"><img class="club_icon" src="images/club_icons/barca.png" alt="Logo del club FC Barcelona"></td>
+            <td class="teamNames">Barcelona</td>
+            <td class="goals"><input id="P1-BARCA-GF" class="goals"></input></td>
+          </tr>
+          <tr>
+            <td class="icons"><img class="club_icon" src="images/club_icons/bayer.png" alt="Logo del club FC Bayer Munich"></td>
+            <td class="teamNames">Bayer Munich</td>
+            <td class="goals"><input id="P1-BAYER-GF" class="goals"></input></td>
+          </tr>
+        </table>
+        <br>
+      </div>
+      
+
+      <div class="fecha2">
+        <table>
+          <tr>
+            <td class="icons"><img class="club_icon" src="images/club_icons/chelsea.png" alt="Logo del club Chelsea"></td>
+            <td class="teamNames">Chelsea</td>
+            <td class="goals"><input id="P1-CHELSEA-GF" class="goals"></input></td>
+          </tr>
+          <tr>
+            <td class="icons"><img class="club_icon" src="images/club_icons/barca.png" alt="Logo del club FC Barcelona"></td>
+            <td class="teamNames">Barcelona</td>
+            <td class="goals"><input id="P2-BARCA-GF" class="goals"></input></td>
+          </tr>
+        </table>
+        <br>
+      </div>
+
+
+      <div class="fecha3">
+        <table>
+          <tr>
+            <td class="icons"><img class="club_icon" src="images/club_icons/bayer.png" alt="Logo del club FC Bayer Munich"></td>
+            <td class="teamNames">Bayer Munich</td>
+            <td class="goals"><input id="P2-BAYER-GF" class="goals"></input></td>
+          </tr>
+          <tr>
+            <td class="icons"><img class="club_icon" src="images/club_icons/chelsea.png" alt="Logo del club Chelsea"></td>
+            <td class="teamNames">Chelsea</td>
+            <td class="goals"><input id="P2-CHELSEA-GF" class="goals"></input></td>
+          </tr>
+        </table>
+        <br>
+      </div>
 </body>
 </html>
 
@@ -78,6 +129,5 @@
     </main>
 
     
-    <script src="./js/main.js"></script>
   </body>
 </html>

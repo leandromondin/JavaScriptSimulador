@@ -29,14 +29,20 @@
 .tabla{
     justify-content: center;
     display: flex;
+    background-color: rgba(255, 255, 255, 0.623);
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }
 table {
-  width:60%;
-
+  width:40%;
 }
 table, th, td {
   border: 2px solid rgba(255, 255, 255, 0.561);
   border-collapse: collapse;
+  border-radius: 5px;
+  margin: auto;
 }
 td {
   padding: 10px;
@@ -48,3 +54,30 @@ th {
     padding: 20px;
     text-align: center;
   }
+
+.club_icon{
+  height: 6vh;
+}
+
+
+.icons {
+  width: 10vh;
+}
+
+.goals {
+  width: 5vh;
+  font-size: 3vh;
+  text-align: center;
+}
+
+.teamNames{
+  width: 40vh;
+  font-size: 3vh;
+}
+
+
+.puntosFinal{
+  font-size: 4vh;
+  text-align: center;
+}
+
