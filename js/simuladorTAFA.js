@@ -144,6 +144,7 @@ function fecha1Update(event){
     }
     actualizarPuntos()
     mostrarTabla();
+    guardarFecha();
 }
 
 
@@ -173,6 +174,7 @@ function fecha2Update(event){
     }
     actualizarPuntos()
     mostrarTabla();
+    guardarFecha();
 }
 
 // Logica de comparacion Fecha 3 del Fixture
@@ -202,4 +204,29 @@ function fecha3Update(event){
     }
     actualizarPuntos()
     mostrarTabla();
+    guardarFecha();
+}
+
+
+
+function mostrarUltimaModificacionEnPantalla(){
+    let aux = JSON.parse(localStorage.getItem("Administrador"))["hora"];
+    let fechaEnPantalla = document.getElementById ("ultimaModifPantalla");
+    while (fechaEnPantalla.firstChild) {
+        fechaEnPantalla.removeChild(fechaEnPantalla.firstChild);
+    }
+    let nodofechaEnPantalla = document.createTextNode(aux);
+    fechaEnPantalla.appendChild(nodofechaEnPantalla);
+}
+
+
+
+function guardarFecha(){
+    const tiempoTranscurrido = Date.now();
+    const hoy = (new Date(tiempoTranscurrido)).toUTCString();
+    diccionario= {"usuario":"Administrador","hora":hoy};
+    const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+    guardarLocal(diccionario.usuario, JSON.stringify(diccionario));
+    console.log(diccionario)
+
 }
