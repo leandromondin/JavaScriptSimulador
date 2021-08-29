@@ -39,15 +39,14 @@ table {
   width:40%;
 }
 table, th, td {
-  border: 2px solid rgba(255, 255, 255, 0.561);
+  border: 1px solid rgba(255, 255, 255, 0.561);
   border-collapse: collapse;
-  border-radius: 5px;
-  margin: auto;
+  border-radius: 25px;
 }
 td {
   padding: 10px;
   text-align: left;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 th {
@@ -79,5 +78,24 @@ th {
 .puntosFinal{
   font-size: 4vh;
   text-align: center;
+}
+
+.fecha{
+  display: flex;
+  flex: column;
+  margin-right:0;
+  padding-right: 0;
+  justify-content: center;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+
+}
+
+.MatchInfo{
+  width:20vw;
+  text-align: center;
+  padding: auto;
 }
 
