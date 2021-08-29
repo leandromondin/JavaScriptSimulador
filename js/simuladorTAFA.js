@@ -6,44 +6,50 @@ const MESSAGE = "Simularemos el torneo apertura nacional con 3 equipos argentino
 
 
 
-const URLGET_EQUIPOS = ["Barcelona,es","Munich,ale","Londres,eng"];
+const URLGET_EQUIPOS = ["Barcelona,es","Londres,eng","Munich,ale"];
 const URLGET01 = "https://api.openweathermap.org/data/2.5/weather?q=";
 const URLGET02 = "&APPID=5f5132a91961cf29f9cb6c151187bea3";
 
 
+
+
+
+
 // Obtengo las temperaturas (con los iconos) correspondientes 
 
-for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
-    URLGET = URLGET01 + URLGET_EQUIPOS[i] + URLGET02;
-    $.get(URLGET, function (respuesta, estado) {
-        // console.log(estado)
-        if(estado === "success"){    
-            let response = respuesta;
-            // console.log("Porcentaje de nubes:" + response.clouds.all);
-            let temperatura= response.main.temp;
-            let new_temperatura =  Math.round(temperatura - 273.1);
-            // console.log("Temperatura actual:" + new_temperatura);
-            let id = "#tempFecha0" + (i + 1);
-            let id_icon = "#tempIconFecha0" + (i + 1);
+$(document).ready(function() {
+    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
+        URLGET = URLGET01 + URLGET_EQUIPOS[i] + URLGET02;
+        $.get(URLGET, function (respuesta, estado) {
+            // console.log(estado)
+            if(estado === "success"){    
+                let response = respuesta;
+                // console.log("Porcentaje de nubes:" + response.clouds.all);
+                let temperatura= response.main.temp;
+                let new_temperatura =  Math.round(temperatura - 273.1);
+                // console.log("Temperatura actual:" + new_temperatura);
+                let id = "#tempFecha0" + (i + 1);
+                let id_icon = "#tempIconFecha0" + (i + 1);
+                
+                $(id).append(new_temperatura);
+           
+
+                if (response.clouds.all >= 80){
+                    $(id_icon).append("<img class='club_icon' src='images/rain.png' alt='Lluvioso'>");
+                }
+
+                if (response.clouds.all > 30 && response.clouds.all < 80){
+                    $(id_icon).append("<img class='club_icon' src='images/cloudy.png' alt='Nublado'></img>");
+                }
+                if (response.clouds.all <= 30){
+                    $(id_icon).append("<img class='club_icon' src='images/sunny.png' alt='Soleado'></img>");
+                }
             
-            $(id).append(new_temperatura);
-
-            if (response.clouds.all >= 80){
-                $(id_icon).append("<img class='club_icon' src='images/rain.png' alt='Lluvioso'>");
             }
-
-            if (response.clouds.all > 30 && response.clouds.all < 80){
-                $(id_icon).append("<img class='club_icon' src='images/cloudy.png' alt='Nublado'></img>");
-            }
-            if (response.clouds.all <= 30){
-                $(id_icon).append("<img class='club_icon' src='images/sunny.png' alt='Soleado'></img>");
-            }
-          
-        }
-        
-    })
-}
-      
+            
+        })
+    }           
+})   
 
 
 //Objeto Equipo - Va hacer referencia a cada equipo que juegue el torneo de fútbol.
@@ -98,8 +104,27 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
         while (elementTable.firstChild) {
             elementTable.removeChild(elementTable.firstChild);
         }
-        let nodoPuntosEquipo = document.createTextNode(equipos[i].puntos)
-        elementTable.appendChild(nodoPuntosEquipo)
+        let nodoPuntosEquipo = document.createTextNode(equipos[i].puntos);
+        elementTable.appendChild(nodoPuntosEquipo);
+        console.log("pointsTeam0" + (i+1));
+
+        $("#pointsTeam0" + (i+1)).animate({  
+            opacity:'1',
+            fontSize:'5vh'
+        }, 
+        200,            
+            function(){       
+                console.log("final de animación");
+            });
+
+        $("#pointsTeam0" + (i+1)).animate({  
+            opacity:'0.5',
+            fontSize:'4vh'
+        }, 
+            400,            
+            function(){       
+                console.log("final de animación");
+            });
         
         
     }  
