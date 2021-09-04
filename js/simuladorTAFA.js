@@ -9,7 +9,7 @@ const MESSAGE = "Simularemos el torneo apertura nacional con 3 equipos argentino
 const URLGET_EQUIPOS = ["Barcelona,es","Londres,eng","Munich,ale"];
 const URLGET01 = "https://api.openweathermap.org/data/2.5/weather?q=";
 const URLGET02 = "&APPID=5f5132a91961cf29f9cb6c151187bea3";
-
+let FIRST_TIME_FLAG = true;
 
 
 
@@ -52,6 +52,21 @@ $(document).ready(function() {
 })   
 
 
+function bounceUp(){
+    FIRST_TIME_FLAG = false;
+    $('#Team01').animate({opacity:'1',fontColor:'red'}, 500, bounceDown);
+    var opa = document.getElementById("Team01");
+    opa.style.backgroundColor = "rgba(31, 180, 123, 0.781)";
+}
+function bounceDown(){
+    $('#Team01').animate({opacity:'0.4',fontColor:'red'}, 500, bounceUp);
+}
+
+
+
+
+
+
 //Objeto Equipo - Va hacer referencia a cada equipo que juegue el torneo de fútbol.
 class Equipo{
     constructor (){
@@ -59,7 +74,11 @@ class Equipo{
         this.partidos_ganados = 0;
         this.partidos_empatados = 0;
         this.partidos_perdidos = 0;
+        this.partidos_jugados_fixture = [0,0,0];
+        this.partidos_jugados = 0;
+        this.goles_favor_fixture = [0,0,0];
         this.goles_favor = 0;
+        this.goles_contra_fixture = [0,0,0];
         this.goles_contra = 0;
         this.puntos = 0;
         this.fixture = [0,0,0];
@@ -67,6 +86,10 @@ class Equipo{
 
     actualizacion_puntos(){//Esta función nos permitirá actualizar los puntos que tenga cada equipo en cualquier momento que necesitemos.
         this.puntos = this.fixture[0] + this.fixture[1] + this.fixture[2];
+        this.goles_favor = this.goles_favor_fixture[0] + this.goles_favor_fixture[1] + this.goles_favor_fixture[2];
+        this.goles_contra = this.goles_contra_fixture[0] + this.goles_contra_fixture[1] + this.goles_contra_fixture[2];
+        this.partidos_jugados = this.partidos_jugados_fixture[0] + this.partidos_jugados_fixture[1] + this.partidos_jugados_fixture[2];
+
     }
     gano_partido(){//Este metodo nos permitirá sumar un partido ganado.
         this.partidos_ganados++;
@@ -95,11 +118,23 @@ function validar_nombre_equipo(i){//Para validar que solo sean los nombres de eq
 
 
 
+
 function mostrarTabla(){//Funcion mostrar tabla con equipos
     actualizarPuntos()
     // equipos.sort((a, b) => b.puntos - a.puntos);
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         let elementTable = document.getElementById ("pointsTeam0" + (i+1));
+
+        $("#GFTeam0" + (i+1)).first().empty();
+        $("#GFTeam0" + (i+1)).append(equipos[i].goles_favor);
+
+        $("#GCTeam0" + (i+1)).first().empty();
+        $("#GCTeam0" + (i+1)).append(equipos[i].goles_contra);
+
+        $("#matchsTeam0" + (i+1)).first().empty();
+        $("#matchsTeam0" + (i+1)).append(equipos[i].partidos_jugados);
+        
+
 
         while (elementTable.firstChild) {
             elementTable.removeChild(elementTable.firstChild);
@@ -110,9 +145,9 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
 
         $("#pointsTeam0" + (i+1)).animate({  
             opacity:'1',
-            fontSize:'5vh'
+            fontSize:'4.5vh'
         }, 
-        200,            
+        100,            
             function(){       
                 console.log("final de animación");
             });
@@ -128,6 +163,10 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
         
         
     }  
+    if (FIRST_TIME_FLAG){
+        bounceUp();
+    }
+    
 }
 
 
@@ -191,25 +230,36 @@ gfBarcaP1.addEventListener('change', fecha1Update)
 gfBayerP1.addEventListener('change', fecha1Update)
 
 function fecha1Update(event){
-    if (gfBarcaP1.value>gfBayerP1.value){
-        console.log("Gano el barca");
-        equipos[0].fixture[0] = 3;
-        equipos[1].fixture[0] = 0;
+    if (gfBarcaP1.value && gfBayerP1.value){
+        if (gfBarcaP1.value>gfBayerP1.value){
+            console.log("Gano el barca");
+            equipos[0].fixture[0] = 3;
+            equipos[1].fixture[0] = 0;
+        }
+        if (gfBarcaP1.value===gfBayerP1.value){
+            console.log("Empataron");
+            equipos[0].fixture[0] = 1;
+            equipos[1].fixture[0] = 1;
+        }
+        
+        if (gfBarcaP1.value<gfBayerP1.value){
+            console.log("Gano el bayer");
+            equipos[0].fixture[0] = 0;
+            equipos[1].fixture[0] = 3;
+        }
+        
+        equipos[0].partidos_jugados_fixture[0] = 1;
+        equipos[1].partidos_jugados_fixture[0] = 1;
+
+        equipos[0].goles_favor_fixture[0] = parseInt(gfBarcaP1.value);
+        equipos[1].goles_favor_fixture[0] = parseInt(gfBayerP1.value);
+        equipos[0].goles_contra_fixture[0] = parseInt(gfBayerP1.value);
+        equipos[1].goles_contra_fixture[0] = parseInt(gfBarcaP1.value);
+
+        actualizarPuntos()
+        mostrarTabla();
+        guardarFecha();
     }
-    if (gfBarcaP1.value===gfBayerP1.value){
-        console.log("Empataron");
-        equipos[0].fixture[0] = 1;
-        equipos[1].fixture[0] = 1;
-    }
-    
-    if (gfBarcaP1.value<gfBayerP1.value){
-        console.log("Gano el bayer");
-        equipos[0].fixture[0] = 0;
-        equipos[1].fixture[0] = 3;
-    }
-    actualizarPuntos()
-    mostrarTabla();
-    guardarFecha();
 }
 
 
@@ -221,25 +271,36 @@ gfChelseaP1.addEventListener('change', fecha2Update)
 gfBarcaP2.addEventListener('change', fecha2Update)
 
 function fecha2Update(event){
-    if (gfChelseaP1.value>gfBarcaP2.value){
-        console.log("Gano el chelsea");
-        equipos[2].fixture[1] = 3;
-        equipos[0].fixture[1] = 0;
+    if (gfChelseaP1.value && gfBarcaP2.value){
+        if (gfChelseaP1.value>gfBarcaP2.value){
+            console.log("Gano el chelsea");
+            equipos[2].fixture[1] = 3;
+            equipos[0].fixture[1] = 0;
+        }
+        if (gfChelseaP1.value===gfBarcaP2.value){
+            console.log("Empataron");
+            equipos[2].fixture[1] = 1;
+            equipos[0].fixture[1] = 1;
+        }
+        
+        if (gfChelseaP1.value<gfBarcaP2.value){
+            console.log("Gano el barca");
+            equipos[2].fixture[1] = 0;
+            equipos[0].fixture[1] = 3;
+        }
+
+        equipos[2].partidos_jugados_fixture[1] = 1;
+        equipos[0].partidos_jugados_fixture[1] = 1;
+
+        equipos[2].goles_favor_fixture[1] = parseInt(gfChelseaP1.value);
+        equipos[0].goles_favor_fixture[1] = parseInt(gfBarcaP2.value);
+        equipos[2].goles_contra_fixture[1] = parseInt(gfBarcaP2.value);
+        equipos[0].goles_contra_fixture[1] = parseInt(gfChelseaP1.value);
+
+        actualizarPuntos()
+        mostrarTabla();
+        guardarFecha();
     }
-    if (gfChelseaP1.value===gfBarcaP2.value){
-        console.log("Empataron");
-        equipos[2].fixture[1] = 1;
-        equipos[0].fixture[1] = 1;
-    }
-    
-    if (gfChelseaP1.value<gfBarcaP2.value){
-        console.log("Gano el barca");
-        equipos[2].fixture[1] = 0;
-        equipos[0].fixture[1] = 3;
-    }
-    actualizarPuntos()
-    mostrarTabla();
-    guardarFecha();
 }
 
 // Logica de comparacion Fecha 3 del Fixture
@@ -249,27 +310,40 @@ gfBayerP2.addEventListener('change', fecha3Update)
 gfChelseaP2.addEventListener('change', fecha3Update)
 
 function fecha3Update(event){
-    if (gfBayerP2.value>gfChelseaP2.value){
-        console.log("Gano el bayer");
-        console.log(equipos[1])
-        equipos[1].fixture[2] = 3;
-        equipos[2].fixture[2] = 0;
-        console.log(equipos[1])
+    // Validamos que los 2 valores se hayan completado
+    if (gfBayerP2.value && gfChelseaP2.value){
+
+        if (gfBayerP2.value>gfChelseaP2.value){
+            console.log("Gano el bayer");
+            console.log(equipos[1])
+            equipos[1].fixture[2] = 3;
+            equipos[2].fixture[2] = 0;
+            console.log(equipos[1])
+        }
+        if (gfBayerP2.value===gfChelseaP2.value){
+            console.log("Empataron");
+            equipos[1].fixture[2] = 1;
+            equipos[2].fixture[2] = 1;
+        }
+        
+        if (gfBayerP2.value<gfChelseaP2.value){
+            console.log("Gano el chelsea");
+            equipos[1].fixture[2] = 0;
+            equipos[2].fixture[2] = 3;
+        }
+        equipos[1].partidos_jugados_fixture[2] = 1;
+        equipos[2].partidos_jugados_fixture[2] = 1;
+
+        equipos[1].goles_favor_fixture[2] = parseInt(gfBayerP2.value);
+        equipos[2].goles_favor_fixture[2] = parseInt(gfChelseaP2.value);
+
+        equipos[1].goles_contra_fixture[2] = parseInt(gfChelseaP2.value);
+        equipos[2].goles_contra_fixture[2] = parseInt(gfBayerP2.value);
+
+        actualizarPuntos()
+        mostrarTabla();
+        guardarFecha();
     }
-    if (gfBayerP2.value===gfChelseaP2.value){
-        console.log("Empataron");
-        equipos[1].fixture[2] = 1;
-        equipos[2].fixture[2] = 1;
-    }
-    
-    if (gfBayerP2.value<gfChelseaP2.value){
-        console.log("Gano el chelsea");
-        equipos[1].fixture[2] = 0;
-        equipos[2].fixture[2] = 3;
-    }
-    actualizarPuntos()
-    mostrarTabla();
-    guardarFecha();
 }
 
 
