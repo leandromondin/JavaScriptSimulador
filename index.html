@@ -10,7 +10,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Share+Tech+Mono&family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
     <!--Css-->
     <link href="./css/styles.css" rel="stylesheet" type="text/css">
   </head>
@@ -38,7 +42,7 @@
     </header> 
     
     <body class="body_wallpaper">
-      <h1><br>Simulador </h1><br>
+      <h1><br>Simulador GRUPO H</h1><br>
       <button class="button_tfa" id="mostrarUltimaModificacionEnPantalla" onclick="mostrarUltimaModificacionEnPantalla()">Mostrar ultima modificación  </button>
       <br><br>Ultima modificación:  <item id="ultimaModifPantalla"></item>
       <br><br>
@@ -46,21 +50,21 @@
       <div>
         <table class="tabla">
           <tr>
-            <th></th><th>E Q U I PO</th><th>PUNTOS</th><th>PJ</th><th>GF</th><th>GC</th>
+            <th></th><th>EQUIPO</th><th>PUNTOS</th><th>PJ</th><th>GF</th><th>GC</th>
           </tr>
           <tr id="Team01">
             <td  id= "club_icon01" class="icons"><img class="club_icon" src="images/club_icons/barca.png" alt="Logo del club FC Barcelona"></td>
-            <td class="teamNames" id="nameTeam01">Barcelona</td><td class="puntosFinal" id="pointsTeam01"></td>
+            <td class="teamNames" id="nameTeam01">BARCELONA</td><td class="puntosFinal" id="pointsTeam01"></td>
             <td class="matchTeams" id="matchsTeam01">-</td><td class="GFTeams" id="GFTeam01">-</td><td class="GCTeams" id="GCTeam01">-</td>
           </tr>
           <tr>
             <td  id= "club_icon02" class="icons"><img class="club_icon" src="images/club_icons/bayer.png" alt="Logo del club FC Bayer Munich"></td>
-            <td class="teamNames" id="nameTeam02">Bayer Munich</td><td class="puntosFinal" id="pointsTeam02"></td>
+            <td class="teamNames" id="nameTeam02">BAYER MUNICH</td><td class="puntosFinal" id="pointsTeam02"></td>
             <td class="matchTeams" id="matchsTeam02">-</td><td class="GFTeams" id ="GFTeam02">-</td><td class="GCTeams" id="GCTeam02">-</td>
           </tr>
           <tr>
             <td  id= "club_icon03" class="icons"><img class="club_icon" src="images/club_icons/chelsea.png" alt="Logo del club Chelsea"></td>
-            <td class="teamNames" id="nameTeam03">Chelsea</td><td class="puntosFinal" id="pointsTeam03"></td>
+            <td class="teamNames" id="nameTeam03">CHELSEA</td><td class="puntosFinal" id="pointsTeam03"></td>
             <td class="matchTeams" id="matchsTeam03">-</td><td class="GFTeams" id ="GFTeam03">-</td><td class="GCTeams" id="GCTeam03">-</td>
           </tr>
         </table>
@@ -69,7 +73,7 @@
       <br><br> 
 
       <div class="fecha1 fecha">
-        <table class="tabla">
+        <table class="tabla2">
           <tr>
             <td class="icons"><img class="club_icon" src="images/club_icons/barca.png" alt="Logo del club FC Barcelona"></td>
             <td class="teamNames">Barcelona</td>
@@ -82,9 +86,9 @@
             
           </tr>
         </table>
-        <table class="MatchInfo tabla">
+        <table class="MatchInfo">
           <tr>
-          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  Camp Nou<br><item id="tempIconFecha01"></item>  <item id="tempFecha01"></item>ºC - Barcelona, España</td>
+          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  Camp Nou<img class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha01"></item>  <item id="tempFecha01"></item>ºC - Barcelona, España</td>
           </tr>
         </table>
         <br>
@@ -92,7 +96,7 @@
       <br><br> 
 
       <div class="fecha2 fecha">
-        <table class="tabla">
+        <table class="tabla2">
           <tr>
             <td class="icons"><img class="club_icon" src="images/club_icons/chelsea.png" alt="Logo del club Chelsea"></td>
             <td class="teamNames">Chelsea</td>
@@ -104,9 +108,9 @@
             <td class="goals"><input id="P2-BARCA-GF" class="goals"></input></td>
           </tr>
         </table>
-        <table class="MatchInfo tabla">
+        <table class="MatchInfo">
           <tr>
-          <td class="MatchInfo MatchWeather2"><img class="club_icon" src="images/estadio.png" alt="Nublado">  Stamford Bridge<br><item id="tempIconFecha02"></item>  <item id="tempFecha02"></item> ºC - Londres, Inglaterra</td>
+          <td class="MatchInfo MatchWeather2"><img class="club_icon" src="images/estadio.png" alt="Nublado">  Stamford Bridge<img class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha02"></item>  <item id="tempFecha02"></item> ºC - Londres, Inglaterra</td>
           </tr>
         </table>
         <br>
@@ -115,7 +119,7 @@
 
 
       <div class="fecha3 fecha">
-        <table class="tabla">
+        <table class="tabla2">
           <tr>
             <td class="icons"><img class="club_icon" src="images/club_icons/bayer.png" alt="Logo del club FC Bayer Munich"></td>
             <td class="teamNames">Bayer Munich</td>
@@ -127,9 +131,9 @@
             <td class="goals"><input id="P2-CHELSEA-GF" class="goals"></input></td>
           </tr>
         </table>
-        <table class="MatchInfo tabla">
+        <table class="MatchInfo">
           <tr>
-          <td class="MatchInfo MatchWeather"><img class="club_icon" src="images/estadio.png" alt="Nublado">  Allianz Arena<br><item id="tempIconFecha03"></item>  <item id="tempFecha03"></item> ºC - Múnich, Alemania</td>
+          <td class="MatchInfo MatchWeather"><img class="club_icon" src="images/estadio.png" alt="Nublado">  Allianz Arena<img class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha03"></item>  <item id="tempFecha03"></item> ºC - Múnich, Alemania</td>
           </tr>
         </table>
       </div>

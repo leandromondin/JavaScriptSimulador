@@ -17,6 +17,7 @@ let FIRST_TIME_FLAG = true;
 
 // Obtengo las temperaturas (con los iconos) correspondientes 
 
+
 $(document).ready(function() {
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         URLGET = URLGET01 + URLGET_EQUIPOS[i] + URLGET02;
