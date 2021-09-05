@@ -83,6 +83,7 @@ class Equipo{
         this.goles_contra = 0;
         this.puntos = 0;
         this.fixture = [0,0,0];
+        this.dif_gol = 0;
     }
 
     actualizacion_puntos(){//Esta función nos permitirá actualizar los puntos que tenga cada equipo en cualquier momento que necesitemos.
@@ -90,6 +91,7 @@ class Equipo{
         this.goles_favor = this.goles_favor_fixture[0] + this.goles_favor_fixture[1] + this.goles_favor_fixture[2];
         this.goles_contra = this.goles_contra_fixture[0] + this.goles_contra_fixture[1] + this.goles_contra_fixture[2];
         this.partidos_jugados = this.partidos_jugados_fixture[0] + this.partidos_jugados_fixture[1] + this.partidos_jugados_fixture[2];
+        this.dif_gol = this.goles_favor - this.goles_contra;
 
     }
     gano_partido(){//Este metodo nos permitirá sumar un partido ganado.
@@ -132,6 +134,9 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
 
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         let elementTable = document.getElementById ("pointsTeam0" + (i+1));
+
+        $("#DGTeam0" + (i+1)).first().empty();
+        $("#DGTeam0" + (i+1)).append(equipos[i].dif_gol);
 
         $("#GFTeam0" + (i+1)).first().empty();
         $("#GFTeam0" + (i+1)).append(equipos[i].goles_favor);

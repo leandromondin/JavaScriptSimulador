@@ -95,7 +95,7 @@ th {
 
 
 .puntosFinal{
-  font-size: 4vh;
+  font-size: 4.5vh;
   text-align: center;
 }
 
@@ -126,9 +126,10 @@ th {
 
 
 
-.teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams{
+.teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
   background-color:     rgba(24, 70, 131, 0.561);
   border: 4px solid transparent;
+  font-size: 3vh;
 }
 
 
