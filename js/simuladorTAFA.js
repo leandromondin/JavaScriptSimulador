@@ -450,6 +450,5 @@ function guardarFecha(){
     diccionario= {"usuario":"Administrador","hora":hoy};
     const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
     guardarLocal(diccionario.usuario, JSON.stringify(diccionario));
-    // console.log(diccionario)
 
 }

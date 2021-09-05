@@ -40,7 +40,7 @@
     margin: auto;
 }
 table {
-  width:50%;
+  width:55%;
 }
 table, th, td {
   border: 4px solid transparent;
@@ -79,6 +79,11 @@ th {
 
 .icons {
   width: 10vh;
+}
+
+
+.iconChampions {
+  height: 12vh;
 }
 
 .goals {
@@ -142,4 +147,14 @@ th {
   justify-content: center;
   margin: auto;
   width: 70%;
+}
+
+
+.paisOpaco{
+  font-size: 2vh;
+  opacity: 0.6;
+}
+
+h1{
+  font-size: 4vh;
 }
