@@ -120,8 +120,15 @@ function validar_nombre_equipo(i){//Para validar que solo sean los nombres de eq
 
 
 function mostrarTabla(){//Funcion mostrar tabla con equipos
-    actualizarPuntos()
-    // equipos.sort((a, b) => b.puntos - a.puntos);
+    console.log("Equipos sin ordenar y puntaje anterior");
+    console.log(equipos);
+    actualizarPuntos();
+    
+    equipos.sort((a, b) => b.puntos - a.puntos);
+
+    console.log("Equipos ordenados");
+    console.log(equipos);
+
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         let elementTable = document.getElementById ("pointsTeam0" + (i+1));
 
@@ -134,14 +141,15 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
         $("#matchsTeam0" + (i+1)).first().empty();
         $("#matchsTeam0" + (i+1)).append(equipos[i].partidos_jugados);
         
-
+        $("#nameTeam0" + (i+1)).first().empty();
+        $("#nameTeam0" + (i+1)).append(equipos[i].nombre);
 
         while (elementTable.firstChild) {
             elementTable.removeChild(elementTable.firstChild);
         }
         let nodoPuntosEquipo = document.createTextNode(equipos[i].puntos);
         elementTable.appendChild(nodoPuntosEquipo);
-        console.log("pointsTeam0" + (i+1));
+        // console.log("pointsTeam0" + (i+1));
 
         $("#pointsTeam0" + (i+1)).animate({  
             opacity:'1',
@@ -149,7 +157,6 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
         }, 
         100,            
             function(){       
-                console.log("final de animación");
             });
 
         $("#pointsTeam0" + (i+1)).animate({  
@@ -158,16 +165,37 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
         }, 
             400,            
             function(){       
-                console.log("final de animación");
             });
         
-        
     }  
+    
+    updateIcons();
+
     if (FIRST_TIME_FLAG){
         bounceUp();
     }
     
 }
+
+
+let equiposIniciales = {"Barcelona":"<img  class='club_icon' src='images/club_icons/barca.png' alt='Logo del club FC Barcelona'>",
+"Bayer Munich":"<img class='club_icon' src='images/club_icons/bayer.png' alt='Logo del club FC Bayer Munich'>",
+"Chelsea":"<img class='club_icon' src='images/club_icons/chelsea.png' alt='Logo del club Chelsea'>"};
+
+
+function updateIcons(){
+    $(club_icon01).first().empty();
+    $(club_icon01).append(equiposIniciales[equipos[0].nombre]);
+    
+    $(club_icon02).first().empty();
+    $(club_icon02).append(equiposIniciales[equipos[1].nombre]);
+  
+    $(club_icon03).first().empty();
+    $(club_icon03).append(equiposIniciales[equipos[2].nombre]);
+    
+
+}
+
 
 
 //Ingreso victorias, empates y derrotas de todos los equipos.
@@ -222,6 +250,10 @@ for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
     equipos.push(equipo);//Agrego un equipo al array de equipos del torneo.
 }
 
+equipos[0].nombre = "Barcelona";
+equipos[1].nombre = "Bayer Munich";
+equipos[2].nombre = "Chelsea";
+
 
 // Logica de comparacion Fecha 1 del Fixture
 const gfBarcaP1  = document.getElementById("P1-BARCA-GF");
@@ -229,34 +261,75 @@ const gfBayerP1  = document.getElementById("P1-BAYER-GF");
 gfBarcaP1.addEventListener('change', fecha1Update)
 gfBayerP1.addEventListener('change', fecha1Update)
 
+
+function conseguirIDBarcelona(){
+    console.log("que carajos")
+    console.log(equipos);
+    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
+        console.log(equipos[i].nombre)
+        if (equipos[i].nombre==="Barcelona")
+        {
+            return i;
+        }
+    }
+    }
+function conseguirIDBayer(){
+    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
+        if (equipos[i].nombre==="Bayer Munich")
+        {
+            return i;
+        }
+    }
+    }
+
+function conseguirIDChelsea(){
+    console.log("que carajos")
+    console.log(equipos);
+    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
+        if (equipos[i].nombre==="Chelsea")
+        {
+            return i;
+        }
+    }
+    }
+
+
+console.log("kakaroto");
+console.log(equipos);
+
 function fecha1Update(event){
+    console.log(equipos);
+    let i_Barca = conseguirIDBarcelona();
+    console.log("EL id del barca es " + i_Barca);
+    let i_Bayer = conseguirIDBayer();
+    console.log("EL id del bayer es " + i_Bayer);
+
     if (gfBarcaP1.value && gfBayerP1.value){
         if (gfBarcaP1.value>gfBayerP1.value){
             console.log("Gano el barca");
-            equipos[0].fixture[0] = 3;
-            equipos[1].fixture[0] = 0;
+            equipos[i_Barca].fixture[0] = 3;
+            equipos[i_Bayer].fixture[0] = 0;
         }
         if (gfBarcaP1.value===gfBayerP1.value){
             console.log("Empataron");
-            equipos[0].fixture[0] = 1;
-            equipos[1].fixture[0] = 1;
+            equipos[i_Barca].fixture[0] = 1;
+            equipos[i_Bayer].fixture[0] = 1;
         }
         
         if (gfBarcaP1.value<gfBayerP1.value){
             console.log("Gano el bayer");
-            equipos[0].fixture[0] = 0;
-            equipos[1].fixture[0] = 3;
+            equipos[i_Barca].fixture[0] = 0;
+            equipos[i_Bayer].fixture[0] = 3;
         }
         
-        equipos[0].partidos_jugados_fixture[0] = 1;
-        equipos[1].partidos_jugados_fixture[0] = 1;
+        equipos[i_Barca].partidos_jugados_fixture[0] = 1;
+        equipos[i_Bayer].partidos_jugados_fixture[0] = 1;
 
-        equipos[0].goles_favor_fixture[0] = parseInt(gfBarcaP1.value);
-        equipos[1].goles_favor_fixture[0] = parseInt(gfBayerP1.value);
-        equipos[0].goles_contra_fixture[0] = parseInt(gfBayerP1.value);
-        equipos[1].goles_contra_fixture[0] = parseInt(gfBarcaP1.value);
+        equipos[i_Barca].goles_favor_fixture[0] = parseInt(gfBarcaP1.value);
+        equipos[i_Bayer].goles_favor_fixture[0] = parseInt(gfBayerP1.value);
+        equipos[i_Barca].goles_contra_fixture[0] = parseInt(gfBayerP1.value);
+        equipos[i_Bayer].goles_contra_fixture[0] = parseInt(gfBarcaP1.value);
 
-        actualizarPuntos()
         mostrarTabla();
         guardarFecha();
     }
@@ -271,33 +344,37 @@ gfChelseaP1.addEventListener('change', fecha2Update)
 gfBarcaP2.addEventListener('change', fecha2Update)
 
 function fecha2Update(event){
+    let i_Barca = conseguirIDBarcelona();
+    console.log("EL id del barca es " + i_Barca);
+    let i_Chelsea = conseguirIDChelsea();
+    console.log("EL id del chelsea es " + i_Chelsea);
+
     if (gfChelseaP1.value && gfBarcaP2.value){
         if (gfChelseaP1.value>gfBarcaP2.value){
             console.log("Gano el chelsea");
-            equipos[2].fixture[1] = 3;
-            equipos[0].fixture[1] = 0;
+            equipos[i_Chelsea].fixture[1] = 3;
+            equipos[i_Barca].fixture[1] = 0;
         }
         if (gfChelseaP1.value===gfBarcaP2.value){
             console.log("Empataron");
-            equipos[2].fixture[1] = 1;
-            equipos[0].fixture[1] = 1;
+            equipos[i_Chelsea].fixture[1] = 1;
+            equipos[i_Barca].fixture[1] = 1;
         }
         
         if (gfChelseaP1.value<gfBarcaP2.value){
             console.log("Gano el barca");
-            equipos[2].fixture[1] = 0;
-            equipos[0].fixture[1] = 3;
+            equipos[i_Chelsea].fixture[1] = 0;
+            equipos[i_Barca].fixture[1] = 3;
         }
 
-        equipos[2].partidos_jugados_fixture[1] = 1;
-        equipos[0].partidos_jugados_fixture[1] = 1;
+        equipos[i_Chelsea].partidos_jugados_fixture[1] = 1;
+        equipos[i_Barca].partidos_jugados_fixture[1] = 1;
 
-        equipos[2].goles_favor_fixture[1] = parseInt(gfChelseaP1.value);
-        equipos[0].goles_favor_fixture[1] = parseInt(gfBarcaP2.value);
-        equipos[2].goles_contra_fixture[1] = parseInt(gfBarcaP2.value);
-        equipos[0].goles_contra_fixture[1] = parseInt(gfChelseaP1.value);
+        equipos[i_Chelsea].goles_favor_fixture[1] = parseInt(gfChelseaP1.value);
+        equipos[i_Barca].goles_favor_fixture[1] = parseInt(gfBarcaP2.value);
+        equipos[i_Chelsea].goles_contra_fixture[1] = parseInt(gfBarcaP2.value);
+        equipos[i_Barca].goles_contra_fixture[1] = parseInt(gfChelseaP1.value);
 
-        actualizarPuntos()
         mostrarTabla();
         guardarFecha();
     }
@@ -310,37 +387,38 @@ gfBayerP2.addEventListener('change', fecha3Update)
 gfChelseaP2.addEventListener('change', fecha3Update)
 
 function fecha3Update(event){
+    let i_Bayer = conseguirIDBayer();
+    let i_Chelsea = conseguirIDChelsea();
     // Validamos que los 2 valores se hayan completado
     if (gfBayerP2.value && gfChelseaP2.value){
 
         if (gfBayerP2.value>gfChelseaP2.value){
             console.log("Gano el bayer");
             console.log(equipos[1])
-            equipos[1].fixture[2] = 3;
-            equipos[2].fixture[2] = 0;
+            equipos[i_Bayer].fixture[2] = 3;
+            equipos[i_Chelsea].fixture[2] = 0;
             console.log(equipos[1])
         }
         if (gfBayerP2.value===gfChelseaP2.value){
             console.log("Empataron");
-            equipos[1].fixture[2] = 1;
-            equipos[2].fixture[2] = 1;
+            equipos[i_Bayer].fixture[2] = 1;
+            equipos[i_Chelsea].fixture[2] = 1;
         }
         
         if (gfBayerP2.value<gfChelseaP2.value){
             console.log("Gano el chelsea");
-            equipos[1].fixture[2] = 0;
-            equipos[2].fixture[2] = 3;
+            equipos[i_Bayer].fixture[2] = 0;
+            equipos[i_Chelsea].fixture[2] = 3;
         }
-        equipos[1].partidos_jugados_fixture[2] = 1;
-        equipos[2].partidos_jugados_fixture[2] = 1;
+        equipos[i_Bayer].partidos_jugados_fixture[2] = 1;
+        equipos[i_Chelsea].partidos_jugados_fixture[2] = 1;
 
-        equipos[1].goles_favor_fixture[2] = parseInt(gfBayerP2.value);
-        equipos[2].goles_favor_fixture[2] = parseInt(gfChelseaP2.value);
+        equipos[i_Bayer].goles_favor_fixture[2] = parseInt(gfBayerP2.value);
+        equipos[i_Chelsea].goles_favor_fixture[2] = parseInt(gfChelseaP2.value);
 
-        equipos[1].goles_contra_fixture[2] = parseInt(gfChelseaP2.value);
-        equipos[2].goles_contra_fixture[2] = parseInt(gfBayerP2.value);
+        equipos[i_Bayer].goles_contra_fixture[2] = parseInt(gfChelseaP2.value);
+        equipos[i_Chelsea].goles_contra_fixture[2] = parseInt(gfBayerP2.value);
 
-        actualizarPuntos()
         mostrarTabla();
         guardarFecha();
     }
@@ -366,6 +444,6 @@ function guardarFecha(){
     diccionario= {"usuario":"Administrador","hora":hoy};
     const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
     guardarLocal(diccionario.usuario, JSON.stringify(diccionario));
-    console.log(diccionario)
+    // console.log(diccionario)
 
 }
