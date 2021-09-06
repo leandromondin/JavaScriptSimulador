@@ -1,25 +1,14 @@
-const PARTIDO_GANADO = 3;
-const PARTIDO_EMPATADO = 1;
-const PARTIDO_PERDIDO = 0;
-const CANTIDAD_EQUIPOS = 3;
-const MESSAGE = "Simularemos el torneo apertura nacional con 3 equipos argentinos.";
-
-
-
-const URLGET_EQUIPOS = ["BARCELONA,es","Londres,eng","Munich,ale"];
+// Inicialización de constantes
+const CANTIDAD_EQUIPOS = 4;
+const URLGET_EQUIPOS = ["Barcelona,es","Kiev,ukr","Lisboa,por","Munich,ale","Barcelona,es"];
 const URLGET01 = "https://api.openweathermap.org/data/2.5/weather?q=";
 const URLGET02 = "&APPID=5f5132a91961cf29f9cb6c151187bea3";
 let FIRST_TIME_FLAG = true;
 
 
-
-
-
 // Obtengo las temperaturas (con los iconos) correspondientes 
-
-
 $(document).ready(function() {
-    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
+    for (let i = 0; i < 5; i++) {
         URLGET = URLGET01 + URLGET_EQUIPOS[i] + URLGET02;
         $.get(URLGET, function (respuesta, estado) {
             // console.log(estado)
@@ -186,7 +175,8 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
 
 let equiposIniciales = {"BARCELONA":"<img  class='club_icon' src='images/club_icons/barca.png' alt='Logo del club FC BARCELONA'>",
 "BAYER MUNICH":"<img class='club_icon' src='images/club_icons/bayer.png' alt='Logo del club FC BAYER MUNICH'>",
-"CHELSEA":"<img class='club_icon' src='images/club_icons/chelsea.png' alt='Logo del club CHELSEA'>"};
+"BENFICA":"<img class='club_icon' src='images/club_icons/benfica.png' alt='Logo del club Benfica'>",
+"DYNAMO KYIV":"<img class='club_icon' src='images/club_icons/dynamo.png' alt='Logo del club dynamo'>"};
 
 
 function updateIcons(){
@@ -199,29 +189,11 @@ function updateIcons(){
     $(club_icon03).first().empty();
     $(club_icon03).append(equiposIniciales[equipos[2].nombre]);
     
+    $(club_icon04).first().empty();
+    $(club_icon04).append(equiposIniciales[equipos[3].nombre]);
 
 }
 
-
-
-//Ingreso victorias, empates y derrotas de todos los equipos.
-function ingresarVictorias() {
-    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
-        equipos[i].partidos_ganados = prompt("Ingresar victorias del equipo " + equipos[i].nombre + ": ");
-   }
-}
-
-function ingresarEmpates() {
-    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
-        equipos[i].partidos_empatados = prompt("Ingresar partidos empatados del equipo " + equipos[i].nombre + ": ");
-   }
-}
-
-function ingresarPerdidos(teams) {
-    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
-        equipos[i].partidos_perdidos = prompt("Ingresar partidos perdidos del equipo " + equipos[i].nombre + ": ");
-   }
-}
 
 
 function actualizarPuntos(){
@@ -230,24 +202,7 @@ function actualizarPuntos(){
    }
 }
 
-//Ordena el array y decide el campeon
-function decidirCampeon(){
-    equipos.sort((a, b) => b.puntos - a.puntos);
-    alert("El equipo campeon es: " + equipos[0].nombre);
- }
 
-
-
-function ingreso_equipo(){
-    alert(MESSAGE);
-    for (let i = 1; i <= CANTIDAD_EQUIPOS; i++) {
-        let nombre_equipo = validar_nombre_equipo(i)
-        equipos[i-1].nombre=nombre_equipo;//Agrego un equipo al array de equipos del torneo.
-        let elementTable = document.getElementById ("nameTeam0" + i);
-        let NodoNombreEquipo = document.createTextNode(nombre_equipo)
-        elementTable.appendChild(NodoNombreEquipo)
-    }
-}
 
 
 const equipos = []; //Instancio y creo todos los equipos que necesito como array de equipos (variable global)
@@ -258,52 +213,41 @@ for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
 
 equipos[0].nombre = "BARCELONA";
 equipos[1].nombre = "BAYER MUNICH";
-equipos[2].nombre = "CHELSEA";
-
-
-// Logica de comparacion Fecha 1 del Fixture
-const gfBarcaP1  = document.getElementById("P1-BARCA-GF");
-const gfBayerP1  = document.getElementById("P1-BAYER-GF");
-gfBarcaP1.addEventListener('change', fecha1Update)
-gfBayerP1.addEventListener('change', fecha1Update)
+equipos[2].nombre = "BENFICA";
+equipos[3].nombre = "DYNAMO KYIV";
 
 
 function conseguirIDBARCELONA(){
-    console.log("que carajos")
-    console.log(equipos);
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         console.log(equipos[i].nombre)
         if (equipos[i].nombre==="BARCELONA")
-        {
-            return i;
-        }
+        {return i;}}
     }
-    }
+
 function conseguirIDBayer(){
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         if (equipos[i].nombre==="BAYER MUNICH")
-        {
-            return i;
-        }
-    }
+        {return i;}}
     }
 
-function conseguirIDCHELSEA(){
-    console.log("que carajos")
-    console.log(equipos);
+function conseguirIDDynamo(){
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
-        if (equipos[i].nombre==="CHELSEA")
-        {
-            return i;
-        }
-    }
+        if (equipos[i].nombre==="DYNAMO KYIV")
+        {return i;}}
     }
 
+function conseguirIDBenfica(){
+    for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
+        if (equipos[i].nombre==="BENFICA")
+        {return i;}}
+    }
 
-console.log("kakaroto");
-console.log(equipos);
-
-function fecha1Update(event){
+// Logica de comparacion Fecha 1 -Partido 1 del Fixture
+const gfBarcaP1  = document.getElementById("P1-BARCA-GF");
+const gfBayerP1  = document.getElementById("P1-BAYER-GF");
+gfBarcaP1.addEventListener('change', fecha11Update)
+gfBayerP1.addEventListener('change', fecha11Update)
+function fecha11Update(event){
     console.log(equipos);
     let i_Barca = conseguirIDBARCELONA();
     console.log("EL id del barca es " + i_Barca);
@@ -311,31 +255,60 @@ function fecha1Update(event){
     console.log("EL id del bayer es " + i_Bayer);
 
     if (gfBarcaP1.value && gfBayerP1.value){
-        if (gfBarcaP1.value>gfBayerP1.value){
-            console.log("Gano el barca");
+        if (gfBarcaP1.value>gfBayerP1.value){// console.log("Gano el barca");
             equipos[i_Barca].fixture[0] = 3;
             equipos[i_Bayer].fixture[0] = 0;
         }
-        if (gfBarcaP1.value===gfBayerP1.value){
-            console.log("Empataron");
+        if (gfBarcaP1.value===gfBayerP1.value){// console.log("Empataron");
             equipos[i_Barca].fixture[0] = 1;
             equipos[i_Bayer].fixture[0] = 1;
         }
-        
-        if (gfBarcaP1.value<gfBayerP1.value){
-            console.log("Gano el bayer");
+        if (gfBarcaP1.value<gfBayerP1.value){// console.log("Gano el bayer");
             equipos[i_Barca].fixture[0] = 0;
             equipos[i_Bayer].fixture[0] = 3;
         }
-        
         equipos[i_Barca].partidos_jugados_fixture[0] = 1;
         equipos[i_Bayer].partidos_jugados_fixture[0] = 1;
-
         equipos[i_Barca].goles_favor_fixture[0] = parseInt(gfBarcaP1.value);
         equipos[i_Bayer].goles_favor_fixture[0] = parseInt(gfBayerP1.value);
         equipos[i_Barca].goles_contra_fixture[0] = parseInt(gfBayerP1.value);
         equipos[i_Bayer].goles_contra_fixture[0] = parseInt(gfBarcaP1.value);
+        mostrarTabla();
+        guardarFecha();
+    }
+}
 
+
+// Logica de comparacion Fecha 1 -Partido 2 del Fixture
+const gfDynamoP1  = document.getElementById("P1-DYNAMO-GF");
+const gfBenficaP1  = document.getElementById("P1-BENFICA-GF");
+gfDynamoP1.addEventListener('change', fecha12Update)
+gfBenficaP1.addEventListener('change', fecha12Update)
+function fecha12Update(event){
+    let i_Dynamo = conseguirIDDynamo();
+    console.log("EL id del Dynamo es " + i_Dynamo);
+    let i_Benfica = conseguirIDBenfica();
+    console.log("EL id del benfica es " + i_Benfica);
+
+    if (gfDynamoP1.value && gfBenficaP1.value){
+        if (gfDynamoP1.value>gfBenficaP1.value){// console.log("Gano el barca");
+            equipos[i_Dynamo].fixture[0] = 3;
+            equipos[i_Benfica].fixture[0] = 0;
+        }
+        if (gfDynamoP1.value===gfBenficaP1.value){// console.log("Empataron");
+            equipos[i_Dynamo].fixture[0] = 1;
+            equipos[i_Benfica].fixture[0] = 1;
+        }
+        if (gfDynamoP1.value<gfBenficaP1.value){// console.log("Gano el bayer");
+            equipos[i_Dynamo].fixture[0] = 0;
+            equipos[i_Benfica].fixture[0] = 3;
+        }
+        equipos[i_Dynamo].partidos_jugados_fixture[0] = 1;
+        equipos[i_Benfica].partidos_jugados_fixture[0] = 1;
+        equipos[i_Dynamo].goles_favor_fixture[0] = parseInt(gfDynamoP1.value);
+        equipos[i_Benfica].goles_favor_fixture[0] = parseInt(gfBenficaP1.value);
+        equipos[i_Dynamo].goles_contra_fixture[0] = parseInt(gfBenficaP1.value);
+        equipos[i_Benfica].goles_contra_fixture[0] = parseInt(gfDynamoP1.value);
         mostrarTabla();
         guardarFecha();
     }
@@ -343,92 +316,138 @@ function fecha1Update(event){
 
 
 
-// Logica de comparacion Fecha 2 del Fixture
-const gfCHELSEAP1  = document.getElementById("P1-CHELSEA-GF");
+// Logica de comparacion Fecha 2 -Partido 1 del Fixture
+const gfBenficaP2  = document.getElementById("P2-BENFICA-GF");
 const gfBarcaP2  = document.getElementById("P2-BARCA-GF");
-gfCHELSEAP1.addEventListener('change', fecha2Update)
-gfBarcaP2.addEventListener('change', fecha2Update)
+gfBenficaP2.addEventListener('change', fecha21Update)
+gfBarcaP2.addEventListener('change', fecha21Update)
 
-function fecha2Update(event){
+function fecha21Update(event){
     let i_Barca = conseguirIDBARCELONA();
-    console.log("EL id del barca es " + i_Barca);
-    let i_CHELSEA = conseguirIDCHELSEA();
-    console.log("EL id del chelsea es " + i_CHELSEA);
+    let i_Benfica = conseguirIDBenfica();
 
-    if (gfCHELSEAP1.value && gfBarcaP2.value){
-        if (gfCHELSEAP1.value>gfBarcaP2.value){
-            console.log("Gano el chelsea");
-            equipos[i_CHELSEA].fixture[1] = 3;
+    if (gfBenficaP2.value && gfBarcaP2.value){
+        if (gfBenficaP2.value>gfBarcaP2.value){
+            equipos[i_Benfica].fixture[1] = 3;
             equipos[i_Barca].fixture[1] = 0;
         }
-        if (gfCHELSEAP1.value===gfBarcaP2.value){
-            console.log("Empataron");
-            equipos[i_CHELSEA].fixture[1] = 1;
+        if (gfBenficaP2.value===gfBarcaP2.value){
+            equipos[i_Benfica].fixture[1] = 1;
             equipos[i_Barca].fixture[1] = 1;
         }
         
-        if (gfCHELSEAP1.value<gfBarcaP2.value){
-            console.log("Gano el barca");
-            equipos[i_CHELSEA].fixture[1] = 0;
+        if (gfBenficaP2.value<gfBarcaP2.value){
+            equipos[i_Benfica].fixture[1] = 0;
             equipos[i_Barca].fixture[1] = 3;
         }
-
-        equipos[i_CHELSEA].partidos_jugados_fixture[1] = 1;
+        equipos[i_Benfica].partidos_jugados_fixture[1] = 1;
         equipos[i_Barca].partidos_jugados_fixture[1] = 1;
-
-        equipos[i_CHELSEA].goles_favor_fixture[1] = parseInt(gfCHELSEAP1.value);
+        equipos[i_Benfica].goles_favor_fixture[1] = parseInt(gfBenficaP2.value);
         equipos[i_Barca].goles_favor_fixture[1] = parseInt(gfBarcaP2.value);
-        equipos[i_CHELSEA].goles_contra_fixture[1] = parseInt(gfBarcaP2.value);
-        equipos[i_Barca].goles_contra_fixture[1] = parseInt(gfCHELSEAP1.value);
-
+        equipos[i_Benfica].goles_contra_fixture[1] = parseInt(gfBarcaP2.value);
+        equipos[i_Barca].goles_contra_fixture[1] = parseInt(gfBenficaP2.value);
         mostrarTabla();
         guardarFecha();
     }
 }
 
-// Logica de comparacion Fecha 3 del Fixture
+
+// Logica de comparacion Fecha 2 -Partido 2 del Fixture
 const gfBayerP2  = document.getElementById("P2-BAYER-GF");
-const gfCHELSEAP2  = document.getElementById("P2-CHELSEA-GF");
-gfBayerP2.addEventListener('change', fecha3Update)
-gfCHELSEAP2.addEventListener('change', fecha3Update)
+const gfDynamoP2  = document.getElementById("P2-DYNAMO-GF");
+gfBayerP2.addEventListener('change', fecha22Update)
+gfDynamoP2.addEventListener('change', fecha22Update)
 
-function fecha3Update(event){
+function fecha22Update(event){
     let i_Bayer = conseguirIDBayer();
-    let i_CHELSEA = conseguirIDCHELSEA();
-    // Validamos que los 2 valores se hayan completado
-    if (gfBayerP2.value && gfCHELSEAP2.value){
+    let i_Dynamo = conseguirIDDynamo();
 
-        if (gfBayerP2.value>gfCHELSEAP2.value){
-            console.log("Gano el bayer");
-            console.log(equipos[1])
-            equipos[i_Bayer].fixture[2] = 3;
-            equipos[i_CHELSEA].fixture[2] = 0;
-            console.log(equipos[1])
+    if (gfBayerP2.value && gfDynamoP2.value){
+        if (gfBayerP2.value>gfDynamoP2.value){
+            equipos[i_Bayer].fixture[1] = 3;
+            equipos[i_Dynamo].fixture[1] = 0;
         }
-        if (gfBayerP2.value===gfCHELSEAP2.value){
-            console.log("Empataron");
-            equipos[i_Bayer].fixture[2] = 1;
-            equipos[i_CHELSEA].fixture[2] = 1;
+        if (gfBayerP2.value===gfDynamoP2.value){
+            equipos[i_Bayer].fixture[1] = 1;
+            equipos[i_Dynamo].fixture[1] = 1;
         }
         
-        if (gfBayerP2.value<gfCHELSEAP2.value){
-            console.log("Gano el chelsea");
-            equipos[i_Bayer].fixture[2] = 0;
-            equipos[i_CHELSEA].fixture[2] = 3;
+        if (gfBayerP2.value<gfDynamoP2.value){
+            equipos[i_Bayer].fixture[1] = 0;
+            equipos[i_Dynamo].fixture[1] = 3;
         }
-        equipos[i_Bayer].partidos_jugados_fixture[2] = 1;
-        equipos[i_CHELSEA].partidos_jugados_fixture[2] = 1;
-
-        equipos[i_Bayer].goles_favor_fixture[2] = parseInt(gfBayerP2.value);
-        equipos[i_CHELSEA].goles_favor_fixture[2] = parseInt(gfCHELSEAP2.value);
-
-        equipos[i_Bayer].goles_contra_fixture[2] = parseInt(gfCHELSEAP2.value);
-        equipos[i_CHELSEA].goles_contra_fixture[2] = parseInt(gfBayerP2.value);
-
+        equipos[i_Bayer].partidos_jugados_fixture[1] = 1;
+        equipos[i_Dynamo].partidos_jugados_fixture[1] = 1;
+        equipos[i_Bayer].goles_favor_fixture[1] = parseInt(gfBayerP2.value);
+        equipos[i_Dynamo].goles_favor_fixture[1] = parseInt(gfDynamoP2.value);
+        equipos[i_Bayer].goles_contra_fixture[1] = parseInt(gfDynamoP2.value);
+        equipos[i_Dynamo].goles_contra_fixture[1] = parseInt(gfBayerP2.value);
         mostrarTabla();
         guardarFecha();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Logica de comparacion Fecha 3 del Fixture
+// const gfBayerP2  = document.getElementById("P2-BAYER-GF");
+// const gfCHELSEAP2  = document.getElementById("P2-CHELSEA-GF");
+// gfBayerP2.addEventListener('change', fecha3Update)
+// gfCHELSEAP2.addEventListener('change', fecha3Update)
+
+// function fecha3Update(event){
+//     let i_Bayer = conseguirIDBayer();
+//     let i_CHELSEA = conseguirIDCHELSEA();
+//     // Validamos que los 2 valores se hayan completado
+//     if (gfBayerP2.value && gfCHELSEAP2.value){
+
+//         if (gfBayerP2.value>gfCHELSEAP2.value){
+//             console.log("Gano el bayer");
+//             console.log(equipos[1])
+//             equipos[i_Bayer].fixture[2] = 3;
+//             equipos[i_CHELSEA].fixture[2] = 0;
+//             console.log(equipos[1])
+//         }
+//         if (gfBayerP2.value===gfCHELSEAP2.value){
+//             console.log("Empataron");
+//             equipos[i_Bayer].fixture[2] = 1;
+//             equipos[i_CHELSEA].fixture[2] = 1;
+//         }
+        
+//         if (gfBayerP2.value<gfCHELSEAP2.value){
+//             console.log("Gano el chelsea");
+//             equipos[i_Bayer].fixture[2] = 0;
+//             equipos[i_CHELSEA].fixture[2] = 3;
+//         }
+//         equipos[i_Bayer].partidos_jugados_fixture[2] = 1;
+//         equipos[i_CHELSEA].partidos_jugados_fixture[2] = 1;
+
+//         equipos[i_Bayer].goles_favor_fixture[2] = parseInt(gfBayerP2.value);
+//         equipos[i_CHELSEA].goles_favor_fixture[2] = parseInt(gfCHELSEAP2.value);
+
+//         equipos[i_Bayer].goles_contra_fixture[2] = parseInt(gfCHELSEAP2.value);
+//         equipos[i_CHELSEA].goles_contra_fixture[2] = parseInt(gfBayerP2.value);
+
+//         mostrarTabla();
+//         guardarFecha();
+//     }
+// }
 
 
 
@@ -445,10 +464,19 @@ function mostrarUltimaModificacionEnPantalla(){
 
 
 function guardarFecha(){
-    const tiempoTranscurrido = Date.now();
-    const hoy = (new Date(tiempoTranscurrido)).toUTCString();
-    diccionario= {"usuario":"Administrador","hora":hoy};
-    const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-    guardarLocal(diccionario.usuario, JSON.stringify(diccionario));
+    let ahora = Date.now();
+    let now = (new Date(ahora)).toUTCString();
+
+    let fechaEnPantalla = document.getElementById ("ultimaModifPantalla");
+    
+    while (fechaEnPantalla.firstChild) {
+        fechaEnPantalla.removeChild(fechaEnPantalla.firstChild);
+    }
+    let nodofechaEnPantalla = document.createTextNode(now);
+    fechaEnPantalla.appendChild(nodofechaEnPantalla);
+ 
 
 }
+
+
+// https://www.elmundo.es/deportes/futbol/champions-league/calendario/grupo-e.html

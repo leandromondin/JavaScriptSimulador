@@ -62,7 +62,12 @@ th {
   }
 
 .club_icon{
-  height: 6vh;
+  height: 7vh;
+}
+
+
+.iconsSmall {
+  height: 4.5vh;
 }
 
 .masInfoIcon{
@@ -80,6 +85,8 @@ th {
 .icons {
   width: 10vh;
 }
+
+
 
 
 .iconChampions {
@@ -106,6 +113,7 @@ th {
 
 .fecha{
   width: 60%;
+  height: 20%;
   display: flex;
   flex: column;
   margin-right:0;
@@ -118,7 +126,15 @@ th {
   opacity: 0.9;
   background-color:     rgba(9, 38, 116, 0.349);
   border: 2px solid transparent;
+}
 
+
+
+.fechaString{
+  font-family: 'Forum';
+  font-size: 3vh;
+  letter-spacing: 2px;
+  opacity: 0.7;
 }
 
 .MatchInfo{
@@ -157,4 +173,8 @@ th {
 
 h1{
   font-size: 4vh;
+}
+
+.fechaNames{
+  font-size: 2.5vh;
 }
