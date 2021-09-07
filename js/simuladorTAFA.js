@@ -1,14 +1,15 @@
 // Inicialización de constantes
 const CANTIDAD_EQUIPOS = 4;
-const URLGET_EQUIPOS = ["Barcelona,es","Kiev,ukr","Lisboa,por","Munich,ale","Barcelona,es"];
+const URLGET_EQUIPOS = ["Barcelona,es","Kiev,ukr","Lisboa,por","Munich,ale","Barcelona,es","Lisboa,por"];
 const URLGET01 = "https://api.openweathermap.org/data/2.5/weather?q=";
 const URLGET02 = "&APPID=5f5132a91961cf29f9cb6c151187bea3";
 let FIRST_TIME_FLAG = true;
+let FIRST_TIME_FLAG_2 = true;
 
 
 // Obtengo las temperaturas (con los iconos) correspondientes 
 $(document).ready(function() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
         URLGET = URLGET01 + URLGET_EQUIPOS[i] + URLGET02;
         $.get(URLGET, function (respuesta, estado) {
             // console.log(estado)
@@ -46,15 +47,21 @@ function bounceUp(){
     FIRST_TIME_FLAG = false;
     $('#Team01').animate({opacity:'1',fontColor:'red'}, 500, bounceDown);
     var opa = document.getElementById("Team01");
-    opa.style.backgroundColor = "rgba(31, 180, 123, 0.781)";
+    opa.style.backgroundColor = "rgba(31, 180, 123, 0.900)";
 }
 function bounceDown(){
     $('#Team01').animate({opacity:'0.4',fontColor:'red'}, 500, bounceUp);
 }
 
-
-
-
+function bounceUp2(){
+    FIRST_TIME_FLAG_2 = false;
+    $('#Team02').animate({opacity:'1',fontColor:'red'}, 500, bounceDown2);
+    var opa2 = document.getElementById("Team02");
+    opa2.style.backgroundColor = "rgba(31, 180, 123, 0.400)";
+}
+function bounceDown2(){
+    $('#Team02').animate({opacity:'0.4',fontColor:'red'}, 500, bounceUp2);
+}
 
 
 //Objeto Equipo - Va hacer referencia a cada equipo que juegue el torneo de fútbol.
@@ -148,7 +155,7 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
 
         $("#pointsTeam0" + (i+1)).animate({  
             opacity:'1',
-            fontSize:'4.5vh'
+            fontSize:'3.5vh'
         }, 
         100,            
             function(){       
@@ -156,7 +163,7 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
 
         $("#pointsTeam0" + (i+1)).animate({  
             opacity:'0.5',
-            fontSize:'4vh'
+            fontSize:'3vh'
         }, 
             400,            
             function(){       
@@ -168,6 +175,10 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
 
     if (FIRST_TIME_FLAG){
         bounceUp();
+    }
+
+    if (FIRST_TIME_FLAG_2){
+        bounceUp2();
     }
     
 }
@@ -388,68 +399,84 @@ function fecha22Update(event){
 }
 
 
+// Logica de comparacion Fecha 3 -Partido 1 del Fixture
+const gfBarcaP3  = document.getElementById("P3-BARCA-GF");
+const gfDynamoP3  = document.getElementById("P3-DYNAMO-GF");
+gfBarcaP3.addEventListener('change', fecha31Update)
+gfDynamoP3.addEventListener('change', fecha31Update)
 
+function fecha31Update(event){
+    let i_Barca = conseguirIDBARCELONA();
+    let i_Dynamo = conseguirIDDynamo();
+    // Validamos que los 2 valores se hayan completado
+    if (gfBarcaP3.value && gfDynamoP3.value){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Logica de comparacion Fecha 3 del Fixture
-// const gfBayerP2  = document.getElementById("P2-BAYER-GF");
-// const gfCHELSEAP2  = document.getElementById("P2-CHELSEA-GF");
-// gfBayerP2.addEventListener('change', fecha3Update)
-// gfCHELSEAP2.addEventListener('change', fecha3Update)
-
-// function fecha3Update(event){
-//     let i_Bayer = conseguirIDBayer();
-//     let i_CHELSEA = conseguirIDCHELSEA();
-//     // Validamos que los 2 valores se hayan completado
-//     if (gfBayerP2.value && gfCHELSEAP2.value){
-
-//         if (gfBayerP2.value>gfCHELSEAP2.value){
-//             console.log("Gano el bayer");
-//             console.log(equipos[1])
-//             equipos[i_Bayer].fixture[2] = 3;
-//             equipos[i_CHELSEA].fixture[2] = 0;
-//             console.log(equipos[1])
-//         }
-//         if (gfBayerP2.value===gfCHELSEAP2.value){
-//             console.log("Empataron");
-//             equipos[i_Bayer].fixture[2] = 1;
-//             equipos[i_CHELSEA].fixture[2] = 1;
-//         }
+        if (gfBarcaP3.value>gfDynamoP3.value){
+            equipos[i_Barca].fixture[2] = 3;
+            equipos[i_Dynamo].fixture[2] = 0;
+        }
+        if (gfBarcaP3.value===gfDynamoP3.value){
+            equipos[i_Barca].fixture[2] = 1;
+            equipos[i_Dynamo].fixture[2] = 1;
+        }
         
-//         if (gfBayerP2.value<gfCHELSEAP2.value){
-//             console.log("Gano el chelsea");
-//             equipos[i_Bayer].fixture[2] = 0;
-//             equipos[i_CHELSEA].fixture[2] = 3;
-//         }
-//         equipos[i_Bayer].partidos_jugados_fixture[2] = 1;
-//         equipos[i_CHELSEA].partidos_jugados_fixture[2] = 1;
+        if (gfBarcaP3.value<gfDynamoP3.value){
+            equipos[i_Barca].fixture[2] = 0;
+            equipos[i_Dynamo].fixture[2] = 3;
+        }
+        equipos[i_Barca].partidos_jugados_fixture[2] = 1;
+        equipos[i_Dynamo].partidos_jugados_fixture[2] = 1;
+        console.log(equipos);
 
-//         equipos[i_Bayer].goles_favor_fixture[2] = parseInt(gfBayerP2.value);
-//         equipos[i_CHELSEA].goles_favor_fixture[2] = parseInt(gfCHELSEAP2.value);
+        equipos[i_Barca].goles_favor_fixture[2] = parseInt(gfBarcaP3.value);
+        equipos[i_Dynamo].goles_favor_fixture[2] = parseInt(gfDynamoP3.value);
 
-//         equipos[i_Bayer].goles_contra_fixture[2] = parseInt(gfCHELSEAP2.value);
-//         equipos[i_CHELSEA].goles_contra_fixture[2] = parseInt(gfBayerP2.value);
+        equipos[i_Barca].goles_contra_fixture[2] = parseInt(gfDynamoP3.value);
+        equipos[i_Dynamo].goles_contra_fixture[2] = parseInt(gfBarcaP3.value);
 
-//         mostrarTabla();
-//         guardarFecha();
-//     }
-// }
+        mostrarTabla();
+        guardarFecha();
+    }
+}
 
+// Logica de comparacion Fecha 3 -Partido 2 del Fixture
+const gfBenficaP3  = document.getElementById("P3-BENFICA-GF");
+const gfBayerP3  = document.getElementById("P3-BAYER-GF");
+gfBenficaP3.addEventListener('change', fecha32Update)
+gfBayerP3.addEventListener('change', fecha32Update)
 
+function fecha32Update(event){
+    let i_Benfica = conseguirIDBenfica();
+    let i_Bayer = conseguirIDBayer();
+    // Validamos que los 2 valores se hayan completado
+    if (gfBenficaP3.value && gfBayerP3.value){
+
+        if (gfBenficaP3.value>gfBayerP3.value){
+            equipos[i_Benfica].fixture[2] = 3;
+            equipos[i_Bayer].fixture[2] = 0;
+        }
+        if (gfBenficaP3.value===gfBayerP3.value){
+            equipos[i_Benfica].fixture[2] = 1;
+            equipos[i_Bayer].fixture[2] = 1;
+        }
+        
+        if (gfBenficaP3.value<gfBayerP3.value){
+            equipos[i_Benfica].fixture[2] = 0;
+            equipos[i_Bayer].fixture[2] = 3;
+        }
+        equipos[i_Benfica].partidos_jugados_fixture[2] = 1;
+        equipos[i_Bayer].partidos_jugados_fixture[2] = 1;
+
+        equipos[i_Benfica].goles_favor_fixture[2] = parseInt(gfBenficaP3.value);
+        equipos[i_Bayer].goles_favor_fixture[2] = parseInt(gfBayerP3.value);
+
+        equipos[i_Benfica].goles_contra_fixture[2] = parseInt(gfBayerP3.value);
+        equipos[i_Bayer].goles_contra_fixture[2] = parseInt(gfBenficaP3.value);
+
+        mostrarTabla();
+        guardarFecha();
+    }
+}
 
 function mostrarUltimaModificacionEnPantalla(){
     let aux = JSON.parse(localStorage.getItem("Administrador"))["hora"];
@@ -477,6 +504,3 @@ function guardarFecha(){
  
 
 }
-
-
-// https://www.elmundo.es/deportes/futbol/champions-league/calendario/grupo-e.html
