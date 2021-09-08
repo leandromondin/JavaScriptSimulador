@@ -1,5 +1,13 @@
+// Validar que sean numeros los que ingresan
+// Responsive
+// Single Page en las fechas
+// icono en la web
+// reglamento
+// readme
 
 function customAlert(option){
+
+    
     if (option===1){
         swal({
             title: "CAMP NOU",
@@ -7,6 +15,23 @@ function customAlert(option){
             icon:"images/barca_stadium.png"
           })
     }
+
+    if (option===2){
+        swal({
+            title: "ALLIANZ ARENA",
+            text: "El Allianz Arena es un estadio de fútbol ubicado en el barrio de Fröttmaning, al norte de Múnich, en el estado federado de Baviera, Alemania. Alberga los partidos como local del F. C. Bayern de Múnich de la Bundesliga de Alemania, equipo que previamente disputaba sus partidos de local en el Estadio Olímpico de Múnich. El TSV 1860 Múnich jugó de local en el estadio desde su inauguración en 2005 hasta 2017.",
+            icon:"images/bayer_stadium.jpeg"
+          })
+    }
+
+    if (option===3){
+        swal({
+            title: "ESTADIO DA LUZ",
+            text: "El Estádio da Luz, denominado oficialmente Estádio do Sport Lisboa e Benfica, es un estadio de fútbol ubicado en Lisboa, Portugal. Es propiedad de Sport Lisboa e Benfica, que disputa en él sus partidos como local. El estadio, con capacidad para 64 642 espectadores, se inauguró el 25 de octubre de 2003.",
+            icon:"images/benfica_stadium.jpeg"
+          })
+    }
+
     if (option===4){
         swal({
             title: "ESTADIO OLIMPICO KIEV",
