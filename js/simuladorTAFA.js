@@ -1,3 +1,23 @@
+
+function customAlert(option){
+    if (option===1){
+        swal({
+            title: "CAMP NOU",
+            text: "El Estadio de Barcelona es un recinto deportivo propiedad del Fútbol Club Barcelona, ubicado en el distrito de Les Corts de la ciudad de Barcelona, España. Se inauguró el 24 de septiembre de 1957 y su aforo actualmente es de 99 354 espectadores, siendo el estadio con mayor capacidad de Europa y el tercero a nivel mundial.​",
+            icon:"images/barca_stadium.png"
+          })
+    }
+    if (option===4){
+        swal({
+            title: "ESTADIO OLIMPICO KIEV",
+            text: "El Complejo Olímpico Nacional de Deportes, es un estadio multiusos localizado en Kiev, capital de Ucrania. Con un aforo de 70.050 espectadores, es el segundo estadio más grande de Europa del Este tras el Estadio Luzhniki de Moscú, y está catalogado como estadio de élite por la UEFA.",
+            icon:"images/kiev_stadium.jpeg"
+          })
+    }
+    
+
+
+}
 // Inicialización de constantes
 const CANTIDAD_EQUIPOS = 4;
 const URLGET_EQUIPOS = ["Barcelona,es","Kiev,ukr","Lisboa,por","Munich,ale","Barcelona,es","Lisboa,por"];

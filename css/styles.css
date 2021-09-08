@@ -87,6 +87,8 @@ th {
 .masInfoIcon:hover{
   height: 3.5vh;
   opacity: 0.9;
+  cursor: pointer;
+
 }
 
 
@@ -201,4 +203,6 @@ h1{
 
 .nav-link{
   margin-left: 5vh;
+  color: rgb(31, 180, 123, 0.781);
+  color: rgba(165, 180, 31, 0.548);
 }
