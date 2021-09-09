@@ -1,9 +1,24 @@
 // Validar que sean numeros los que ingresan
+
+function valideKey(evt){
+    // code is the decimal ASCII representation of the pressed key.
+    let code = (evt.which) ? evt.which : evt.keyCode;
+    if(code==8) { // backspace.
+      return true;
+    } else if(code>=48 && code<=57) { // is a number.
+      return true;
+    } else{ // other keys.
+      return false;
+    }
+}
+
+
 // Responsive
 // reglamento
 // readme
 // resetear simulacion
-
+// limpieza de codigo
+// Que sean las 6 fechas en vez de las 3
 
 
 $("#fecha1SeleccionadaTexto").click(function() {
@@ -204,7 +219,33 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
     console.log(equipos);
     actualizarPuntos();
     
-    equipos.sort((a, b) => b.puntos - a.puntos);
+    // equipos.sort((a, b) => b.puntos - a.puntos);
+
+    equipos.sort( (a, b) => {
+        if(a.puntos > b.puntos) {
+          return -1;
+        }
+        if(a.puntos < b.puntos) {
+          return 1;
+        }
+        if (a.dif_gol > b.dif_gol) {
+          return -1;
+        }
+        if (a.dif_gol < b.dif_gol) {
+          return 1;
+        }
+
+        if (a.goles_favor > b.goles_favor) {
+            return -1;
+          }
+          if (a.goles_favor < b.goles_favor) {
+            return 1;
+          }
+
+
+        return 0;
+      });
+
 
     console.log("Equipos ordenados");
     console.log(equipos);
