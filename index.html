@@ -72,9 +72,15 @@
         <br>
       </div>
       
-      <p class="fechaString">FECHA 1</p>
+      <section class="fechasIteradas">
+        <p id="fecha1SeleccionadaTexto" class="fechaString">FECHA 1</p>
+        <p id="fecha2SeleccionadaTexto" class="fechaString">FECHA 2</p>
+        <p id="fecha3SeleccionadaTexto" class="fechaString">FECHA 3</p>
+      </section>
+
+
       <section class="fechaHorizontal">
-        <div class="fecha1 fecha">
+        <div id="fecha1-1" class="fecha1 fecha fecha1Seleccionada">
           <table class="tabla2">
             <tr>
               <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/barca.png" alt="Logo del club FC BARCELONA"></td>
@@ -94,7 +100,7 @@
           </table>
         </div>
 
-        <div class="fecha1 fecha">
+        <div id="fecha1-2" class="fecha1 fecha fecha1Seleccionada">
         <table class="tabla2">
           <tr>
             <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/dynamo.png" alt="Logo del club DYNAMO KYIV"></td>
@@ -112,14 +118,12 @@
           <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  Estadio Olímpico Kiev<img onclick="customAlert(4)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha02"></item>  <item id="tempFecha02"></item>ºC - Kiev, Ucrania</td>
           </tr>
         </table>
-        <br>
         </div>
       </section>
-      <br><br> 
 
-      <p class="fechaString">FECHA 2</p>
+      
       <section class="fechaHorizontal">
-        <div class="fecha2 fecha">
+        <div id="fecha2-1" class="fecha2 fecha fecha2Seleccionada">
           <table class="tabla2">
             <tr>
               <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/benfica.png" alt="Logo del club FC BENFICA"></td>
@@ -141,7 +145,7 @@
           <br>
         </div>
 
-        <div class="fecha2 fecha">
+        <div id="fecha2-2"  class="fecha2 fecha fecha2Seleccionada">
           <table class="tabla2">
             <tr>
               <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/bayer.png" alt="Logo del club FC BAYER MUNICH"></td>
@@ -162,11 +166,9 @@
           <br>
         </div>
       </section>
-      <br><br> 
 
-      <p class="fechaString">FECHA 3</p>
       <section class="fechaHorizontal">
-        <div class="fecha1 fecha">
+        <div class="fecha1 fecha fecha3Seleccionada">
           <table class="tabla2">
             <tr>
               <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/barca.png" alt="Logo del club FC BARCELONA"></td>
@@ -187,7 +189,7 @@
         </div>
 
 
-      <div class="fecha1 fecha">
+      <div class="fecha1 fecha fecha3Seleccionada">
         <table class="tabla2">
           <tr>
             <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/benfica.png" alt="Logo del club FC BENFICA"></td>
@@ -207,10 +209,7 @@
         </table>
       </div>
       </section>
-
-</body>
-</html>
-
+      <br>
 
     </body>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

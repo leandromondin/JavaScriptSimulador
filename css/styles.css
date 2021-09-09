@@ -151,6 +151,11 @@ th {
   font-size: 2vh;
   letter-spacing: 2px;
   opacity: 0.7;
+  margin-left: 5vh;
+}
+
+.fechaString:hover{
+  opacity: 1;
 }
 
 .MatchInfo{
@@ -172,7 +177,6 @@ th {
 
 .tabla2{
   justify-content: center;
-  display: flex;
   background-color:     rgba(9, 11, 116, 0.561);
   color: white;
   display: flex;
@@ -206,4 +210,17 @@ h1{
   margin-left: 5vh;
   color: rgb(31, 180, 123, 0.781);
   color: rgba(165, 180, 31, 0.548);
+}
+
+
+.fecha1-1,.fecha1-2 ,.fecha2-1,.fecha2-2{
+  position: absolute;
+}
+
+
+.fechasIteradas{
+  display: flex;
+  flex: column;
+  margin: auto;
+  justify-content: center;
 }

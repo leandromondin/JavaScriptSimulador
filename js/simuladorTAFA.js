@@ -1,9 +1,45 @@
 // Validar que sean numeros los que ingresan
 // Responsive
-// Single Page en las fechas
-// icono en la web
 // reglamento
 // readme
+// resetear simulacion
+
+
+
+$("#fecha1SeleccionadaTexto").click(function() {
+    $(".fecha1Seleccionada").show(1);
+    $("#fecha1SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
+    $(".fecha2Seleccionada").hide(1);
+    $("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    $(".fecha3Seleccionada").hide(1);
+    $("#fecha3SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    });
+
+$("#fecha2SeleccionadaTexto").click(function() {
+    $(".fecha2Seleccionada").show(1);
+    $("#fecha2SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
+    $(".fecha1Seleccionada").hide(1);
+    $("#fecha1SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    $(".fecha3Seleccionada").hide(1);
+    $("#fecha3SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    });
+
+$("#fecha3SeleccionadaTexto").click(function() {
+    $(".fecha3Seleccionada").show(1);
+    $("#fecha3SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
+    $(".fecha1Seleccionada").hide(1);
+    $("#fecha1SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    $(".fecha2Seleccionada").hide(1);
+    $("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+
+    });    
+
+$(".fecha1Seleccionada").show(1);
+$("#fecha1SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
+$(".fecha2Seleccionada").hide(1);
+$("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+$(".fecha3Seleccionada").hide(1);
+$("#fecha3SeleccionadaTexto").animate({opacity:'0.7'});
 
 function customAlert(option){
 
