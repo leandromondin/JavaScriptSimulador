@@ -1,6 +1,6 @@
-// Validar que sean numeros los que ingresan
 
-function valideKey(evt){
+
+function valideKey(evt){// Validar que sean numeros los que ingresan
     // code is the decimal ASCII representation of the pressed key.
     let code = (evt.which) ? evt.which : evt.keyCode;
     if(code==8) { // backspace.
@@ -16,9 +16,7 @@ function valideKey(evt){
 // Responsive
 // reglamento
 // readme
-// resetear simulacion
 // limpieza de codigo
-// Que sean las 6 fechas en vez de las 3
 
 
 $("#fecha1SeleccionadaTexto").click(function() {
