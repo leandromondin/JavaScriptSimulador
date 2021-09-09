@@ -156,6 +156,7 @@ th {
 
 .fechaString:hover{
   opacity: 1;
+  cursor:pointer;
 }
 
 .MatchInfo{
@@ -224,3 +225,6 @@ h1{
   margin: auto;
   justify-content: center;
 }
+
+
+
