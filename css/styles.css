@@ -68,9 +68,10 @@ table {
 
   .teamNames{
     width: 70vw;
-    font-size: 11.5vh;
-    letter-spacing: 2px;
+    letter-spacing: px;
     border: 1px solid transparent;
+    text-align: center;
+    margin: auto;
   }
   
   
@@ -81,12 +82,14 @@ table {
 
 .teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
   font-size: 2vh;
+  text-align: center;
 }
 
 .paisOpaco{
   font-size: 1vh;
   opacity: 0.6;
   visibility: hidden;
+  width: 0;
 }
 table, th, td {
   border: 2px solid transparent;
@@ -205,6 +208,7 @@ th {
   .teamNames{
     width: 25vw;
     letter-spacing: 5px;
+    text-align: center;
   }
   
   .absolute{
@@ -218,6 +222,7 @@ th {
     background-color:     rgba(24, 70, 131, 0.561);
     border: 4px solid transparent;
     font-size: 2.5vh;
+    text-align: center;
   }
 
   .paisOpaco{
@@ -288,6 +293,7 @@ th {
   .MatchInfoNameStadium{
     visibility: visible;
     width: 20%;
+    font-size: 2vh;
   }
 
 }
@@ -306,7 +312,7 @@ th {
 
 
 .masInfoIcon:hover{
-  height: 3.5vh;
+  height: 3vh;
   opacity: 0.9;
   cursor: pointer;
 
