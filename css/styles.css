@@ -7,16 +7,7 @@
 }
 
 
-.body_wallpaper{
-    align-items: center;
-    background-image: url(../images/nike-football.webp);
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.842);
-    text-align: center;
-}
+
 
 .button_tfa {
     -webkit-transition-duration: 0.4s; /* Safari */
@@ -38,11 +29,144 @@
 table {
   width:55%;
 }
+
+
+
+
+@media (min-width: 20px) {
+
+
+  .body_wallpaper{
+    align-items: center;
+    background-image: url(../images/nike-football.webp);
+    height: 180vh;
+    position: absolute;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.842);
+    text-align: center;
+}
+
+
+
+  .tabla{
+    background-size:repeat;
+    justify-content: center;
+    display: flex;
+    background-color:     rgba(9, 11, 116, 0.561);
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width:90%;
+    height: 40vh;
+  }
+
+  th {
+    text-align: center;
+    font-size: 1.5vh;
+    padding-left: 1vh;
+  }
+
+  .teamNames{
+    width: 60vw;
+    font-size: 11.5vh;
+    letter-spacing: 2px;
+    border: 1px solid transparent;
+  }
+  
+  
+  .absolute{
+    visibility:hidden;
+}
+
+
+.teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
+  font-size: 2vh;
+}
+
+.paisOpaco{
+  font-size: 1vh;
+  opacity: 0.6;
+  visibility: hidden;
+}
 table, th, td {
-  border: 4px solid transparent;
+  border: 2px solid transparent;
   /* border: 1px solid rgba(9, 11, 116, 0.561); */
   border-collapse: collapse;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
+
+.fechaHorizontal{
+  display: flex;
+  flex-direction: column;
+  /* padding-right: 10vh; */
+  margin-bottom: 20vh;
+  position: absolute;
+  
+}
+
+.fecha{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  margin-right:0;
+  justify-content: center;
+  margin: auto;
+  padding: 2vh;
+  opacity: 0.9;
+  background-color:     rgba(9, 38, 116, 0.349);
+  border: 6px solid transparent;
+  border-right: 1px dotted black;
+}
+
+.MatchInfo{
+  width:90vw;
+  text-align: center;
+  padding: auto;
+  /* font-family: 'Roboto', sans-serif; */
+  letter-spacing: 0;
+  /* margin-top: 4vh; */
+  display: flex;
+  flex-direction: row;
+}
+
+.tabla2{
+  justify-content: center;
+  background-color:     rgba(9, 11, 116, 0.561);
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 70%;
+  margin-top: 2vh;
+}
+
+.masInfoIcon{
+  height: 3vh;
+  opacity: 0.7;
+  transform: scaleX(-1);
+  margin-bottom: 3vh;
+  /* margin-right: 5vh; */
+}
+
+}
+
+
+@media (min-width: 520px) {
+
+  .body_wallpaper{
+    align-items: center;
+    background-image: url(../images/nike-football.webp);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.842);
+    text-align: center;
+}
+
+
 .tabla{
   justify-content: center;
   display: flex;
@@ -54,6 +178,7 @@ table, th, td {
   height: 43vh;
   width:55%;
 }
+
 
 td {
   padding: 10px;
@@ -69,8 +194,97 @@ th {
     
   }
 
+
+  .teamNames{
+    width: 25vw;
+    letter-spacing: 5px;
+  }
+  
+  .absolute{
+    position: absolute;
+    margin-left: 80%;
+    opacity: 0.6;
+    visibility:visible;
+  }
+
+  .teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
+    background-color:     rgba(24, 70, 131, 0.561);
+    border: 4px solid transparent;
+    font-size: 2.5vh;
+  }
+
+  .paisOpaco{
+    font-size: 2vh;
+    opacity: 0.6;
+    visibility: visible;
+  }
+
+  table, th, td {
+    border: 4px solid transparent;
+    /* border: 1px solid rgba(9, 11, 116, 0.561); */
+    border-collapse: collapse;
+  }
+
+  .fechaHorizontal{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    position: absolute;
+    
+  }
+
+  .fecha{
+    width: 50%;
+    height: 20%;
+    display: flex;
+    flex: row;
+    margin-right:0;
+    justify-content: center;
+    margin: auto;
+    padding: 2vh;
+    opacity: 0.9;
+    background-color:     rgba(9, 38, 116, 0.349);
+    border: 6px solid transparent;
+    border-right: 1px dotted black;
+  }
+
+  .MatchInfo{
+    width:50vw;
+    text-align: center;
+    padding: auto;
+    /* font-family: 'Roboto', sans-serif; */
+    letter-spacing: 0;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .tabla2{
+    justify-content: center;
+    background-color:     rgba(9, 11, 116, 0.561);
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin: auto;
+    width: 70%;
+  }
+
+  .masInfoIcon{
+    height: 3vh;
+    opacity: 0.7;
+    transform: scaleX(-1);
+    margin-bottom: 3vh;
+    margin-right: 10vh;
+  }
+
+}
+
+
+
 .club_icon{
   height: 5vh;
+  margin-right: 2vh;
 }
 
 
@@ -78,12 +292,7 @@ th {
   height: 4.5vh;
 }
 
-.masInfoIcon{
-  height: 3vh;
-  opacity: 0.7;
-  transform: scaleX(-1);
-  margin-bottom: 3vh;
-}
+
 .masInfoIcon:hover{
   height: 3.5vh;
   opacity: 0.9;
@@ -109,11 +318,6 @@ th {
   text-align: center;
 }
 
-.teamNames{
-  width: 25vw;
-  letter-spacing: 5px;
-
-}
 
 
 .puntosFinal{
@@ -121,30 +325,10 @@ th {
   text-align: center;
 }
 
-.fecha{
-  width: 50%;
-  height: 20%;
-  display: flex;
-  flex: row;
-  margin-right:0;
- 
-  justify-content: center;
-  margin: auto;
-  padding: 2vh;
-  opacity: 0.9;
-  background-color:     rgba(9, 38, 116, 0.349);
-  border: 6px solid transparent;
-  border-right: 1px dotted black;
-  /* background-color: turquoise; */
-}
 
 
-.fechaHorizontal{
-  display: flex;
-  flex: row;
-  margin: auto;
-  justify-content: center;
-}
+
+
 
 .fechaString{
   font-family: 'Forum';
@@ -159,38 +343,6 @@ th {
   cursor:pointer;
 }
 
-.MatchInfo{
-  width:20vw;
-  text-align: center;
-  padding: auto;
-  /* font-family: 'Roboto', sans-serif; */
-  letter-spacing: 0;
-}
-
-
-
-.teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
-  background-color:     rgba(24, 70, 131, 0.561);
-  border: 4px solid transparent;
-  font-size: 2.5vh;
-}
-
-
-.tabla2{
-  justify-content: center;
-  background-color:     rgba(9, 11, 116, 0.561);
-  color: white;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  width: 70%;
-}
-
-
-.paisOpaco{
-  font-size: 2vh;
-  opacity: 0.6;
-}
 
 h1{
   font-size: 2.5vh;
@@ -200,11 +352,7 @@ h1{
   font-size: 2vh;
 }
 
-.absolute{
-  position: absolute;
-  margin-left: 80%;
-  opacity: 0.6;
-}
+
 
 
 .nav-link{
@@ -214,7 +362,7 @@ h1{
 }
 
 
-.fecha1-1,.fecha1-2 ,.fecha2-1,.fecha2-2{
+.fecha1-1,.fecha1-2 ,.fecha2-1,.fecha2-2,.fecha3-1,.fecha3-2{
   position: absolute;
 }
 
