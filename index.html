@@ -40,8 +40,8 @@
     <body class="body_wallpaper">
       <br>
       <img class="iconChampions" src="images/uefa_logo.png" alt="Logo uefa champions league"><br>
-      <h1>Simulador - GRUPO E</h1>
-      <!-- <p class="absolute">Last changes<item id="ultimaModifPantalla"></item></p> -->
+      <h1>GRUPO E</h1>
+      <p class="absolute">Last changes: <item id="ultimaModifPantalla"></item></p>
       <div>
         <table class="tabla">
           <tr>
@@ -68,7 +68,6 @@
             <td class="matchTeams" id="matchsTeam04">-</td><td class="GFTeams" id ="GFTeam04">-</td><td class="GCTeams" id="GCTeam04">-</td><td class="DGTeams" id="DGTeam04">-</td>
           </tr>
         </table>
-        <br>
       </div>
       
       <section class="fechasIteradas">
@@ -94,7 +93,7 @@
           </table>
           <table class="MatchInfo">
             <tr>
-            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  Camp Nou<img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha01"></item>  <item id="tempFecha01"></item>ºC - Barcelona, España</td>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  <p class="MatchInfoNameStadium"> Camp Nou </p><img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha01"></item>  <item id="tempFecha01"></item>ºC - Barcelona, España</td>
             </tr>
           </table>
         </div>
@@ -114,7 +113,7 @@
         </table>
         <table class="MatchInfo">
           <tr>
-          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  Estadio Olímpico Kiev<img onclick="customAlert(4)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha02"></item>  <item id="tempFecha02"></item>ºC - Kiev, Ucrania</td>
+          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"> <p class="MatchInfoNameStadium">  Estadio Olímpico Kiev</p><img onclick="customAlert(4)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha02"></item>  <item id="tempFecha02"></item>ºC - Kiev, Ucrania</td>
           </tr>
         </table>
         </div>
@@ -122,6 +121,27 @@
 
       
       <section class="fechaHorizontal">
+ 
+        <div id="fecha2-2"  class="fecha2 fecha fecha2Seleccionada">
+          <table class="tabla2">
+            <tr>
+              <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/bayer.png" alt="Logo del club FC BAYER MUNICH"></td>
+              <td class="teamNames fechaNames">BAYER MUNICH<span class="paisOpaco">(GER)</span></td>
+              <td class="goals"><input id="P2-BAYER-GF" class="goals" onkeypress="return valideKey(event);"></input></td>
+            </tr>
+            <tr>
+              <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/dynamo.png" alt="Logo del club DYNAMO KYIV"></td>
+              <td class="teamNames fechaNames">DYNAMO KYIV<span class="paisOpaco">(UKR)</span></td>
+              <td class="goals"><input id="P2-DYNAMO-GF" class="goals" onkeypress="return valideKey(event);"></input></td>
+            </tr>
+          </table>
+          <table class="MatchInfo">
+            <tr>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="Nublado">  <p class="MatchInfoNameStadium"> Allianz Arena </p><img onclick="customAlert(2)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"><item id="tempIconFecha04"></item>  <item id="tempFecha04"></item> ºC - Múnich, Alemania</td>
+            </tr>
+          </table>
+        </div>
+
         <div id="fecha2-1" class="fecha2 fecha fecha2Seleccionada">
           <table class="tabla2">
             <tr>
@@ -138,32 +158,13 @@
           </table>
           <table class="MatchInfo">
             <tr>
-            <td class="MatchInfo MatchWeather2"><img class="club_icon" src="images/estadio.png" alt="Nublado">  Estádio da Luz<img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha03"></item>  <item id="tempFecha03"></item> ºC - Lisboa, Portugal</td>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="Nublado">  <p class="MatchInfoNameStadium"> Estádio da Luz</p><img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"><item id="tempIconFecha03"></item>  <item id="tempFecha03"></item> ºC - Lisboa, Portugal</td>
             </tr>
           </table>
-          <br>
         </div>
 
-        <div id="fecha2-2"  class="fecha2 fecha fecha2Seleccionada">
-          <table class="tabla2">
-            <tr>
-              <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/bayer.png" alt="Logo del club FC BAYER MUNICH"></td>
-              <td class="teamNames fechaNames">BAYER MUNICH <span class="paisOpaco">(GER)</span></td>
-              <td class="goals"><input id="P2-BAYER-GF" class="goals" onkeypress="return valideKey(event);"></input></td>
-            </tr>
-            <tr>
-              <td class="icons"><img class="club_icon iconsSmall" src="images/club_icons/dynamo.png" alt="Logo del club DYNAMO KYIV"></td>
-              <td class="teamNames fechaNames">DYNAMO KYIV <span class="paisOpaco">(UKR)</span></td>
-              <td class="goals"><input id="P2-DYNAMO-GF" class="goals" onkeypress="return valideKey(event);"></input></td>
-            </tr>
-          </table>
-          <table class="MatchInfo">
-            <tr>
-            <td class="MatchInfo MatchWeather2"><img class="club_icon" src="images/estadio.png" alt="Nublado">  Allianz Arena<img onclick="customAlert(2)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha04"></item>  <item id="tempFecha04"></item> ºC - Múnich, Alemania</td>
-            </tr>
-          </table>
-          <br>
-        </div>
+
+       
       </section>
 
       <section class="fechaHorizontal">
@@ -182,7 +183,7 @@
           </table>
           <table class="MatchInfo">
             <tr>
-            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"> Camp Nou<img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha05"></item>  <item id="tempFecha05"></item>ºC - Barcelona, España</td>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"><p class="MatchInfoNameStadium">Camp Nou</p><img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha05"></item>  <item id="tempFecha05"></item>ºC - Barcelona, España</td>
             </tr>
           </table>
         </div>
@@ -203,11 +204,12 @@
         </table>
         <table class="MatchInfo">
           <tr>
-          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  Estádio da Luz<img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha06"></item>  <item id="tempFecha06"></item> ºC - Lisboa, Portugal</td>
+          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"> <p class="MatchInfoNameStadium"> Estádio da Luz</p><img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha06"></item>  <item id="tempFecha06"></item> ºC - Lisboa, Portugal</td>
           </tr>
         </table>
       </div>
       </section>
+      <br><br><br><br>
 
     </body>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
