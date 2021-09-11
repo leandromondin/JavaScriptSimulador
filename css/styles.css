@@ -48,7 +48,7 @@ table {
   .body_wallpaper{
     align-items: center;
     background-image: url(../images/nike-football.webp);
-    height: 180vh;
+    height: 150vh;
     position: absolute;
     align-items: center;
     color: rgba(255, 255, 255, 0.842);
@@ -64,7 +64,9 @@ table {
     justify-content: center;
     margin: auto;
     width:90%;
-    height: 40vh;
+    height: 37vh;
+    margin-top:-5vh;
+
   }
 
   th {
