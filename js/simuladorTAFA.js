@@ -274,7 +274,7 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
         // console.log("pointsTeam0" + (i+1));
 
         $("#pointsTeam0" + (i+1)).animate({  
-            opacity:'1',
+            // opacity:'0.7',
             fontSize:'3.5vh'
         }, 
         100,            
@@ -282,7 +282,7 @@ function mostrarTabla(){//Funcion mostrar tabla con equipos
             });
 
         $("#pointsTeam0" + (i+1)).animate({  
-            opacity:'0.5',
+            // opacity:'1',
             fontSize:'3vh'
         }, 
             400,            

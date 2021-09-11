@@ -23,9 +23,6 @@
 
 
 
-
-
-
 table {
   width:55%;
 }
@@ -34,8 +31,20 @@ table {
 
 
 @media (min-width: 20px) {
+  
 
-
+  
+  .teamNames{
+    width: 70vw;
+    letter-spacing: px;
+    border: 2px solid transparent;
+    text-align: left;
+    font-size: 10px;
+    padding-left: 2px;
+    padding-left: 2vh;
+  }
+  
+  
   .body_wallpaper{
     align-items: center;
     background-image: url(../images/nike-football.webp);
@@ -45,8 +54,6 @@ table {
     color: rgba(255, 255, 255, 0.842);
     text-align: center;
 }
-
-
 
   .tabla{
     background-size:repeat;
@@ -66,21 +73,14 @@ table {
     padding-left: 1vh;
   }
 
-  .teamNames{
-    width: 70vw;
-    letter-spacing: px;
-    border: 1px solid transparent;
-    text-align: center;
-    margin: auto;
-  }
-  
+
   
   .absolute{
     visibility:hidden;
 }
 
 
-.teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
+.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
   font-size: 2vh;
   text-align: center;
 }
@@ -93,7 +93,6 @@ table {
 }
 table, th, td {
   border: 2px solid transparent;
-  /* border: 1px solid rgba(9, 11, 116, 0.561); */
   border-collapse: collapse;
   padding-top: 1vh;
   padding-bottom: 1vh;
@@ -102,8 +101,6 @@ table, th, td {
 .fechaHorizontal{
   display: flex;
   flex-direction: column;
-  /* padding-right: 10vh; */
-  /* margin-bottom: 20vh; */
   position: absolute;
   
 }
@@ -118,8 +115,7 @@ table, th, td {
   padding: 2vh;
   opacity: 0.9;
   background-color:     rgba(9, 38, 116, 0.349);
-  border: 6px solid transparent;
-  border-right: 1px dotted black;
+  /* border: 6px solid red; */
 }
 
 .MatchInfo{
@@ -156,6 +152,11 @@ table, th, td {
 .MatchInfoNameStadium{
   visibility: hidden;
   width: 0;
+}
+
+.teamNames,.puntosFinal,.matchTeams,.GFTeams,.GCTeams,.DGTeams{
+  background-color:     rgba(24, 70, 131, 0.561);
+  border: 1px solid transparent;
 }
 
 }
@@ -225,6 +226,8 @@ th {
     text-align: center;
   }
 
+
+
   .paisOpaco{
     font-size: 2vh;
     opacity: 0.6;
@@ -258,7 +261,6 @@ th {
     opacity: 0.9;
     background-color:     rgba(9, 38, 116, 0.349);
     border: 6px solid transparent;
-    border-right: 1px dotted black;
   }
 
   .MatchInfo{
@@ -302,7 +304,7 @@ th {
 
 .club_icon{
   height: 5vh;
-  margin-right: 2vh;
+
 }
 
 
@@ -328,7 +330,8 @@ th {
 
 .iconChampions {
   height: 10vh;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
+  padding: 0;
 }
 
 .goals {
@@ -343,6 +346,7 @@ th {
   font-size: 4.5vh;
   text-align: center;
 }
+
 
 
 
@@ -400,3 +404,6 @@ h1{
 
 
 
+.tempFechas{
+  margin-left: 2vh;
+}

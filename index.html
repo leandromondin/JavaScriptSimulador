@@ -7,8 +7,7 @@
     <title>Simulador UEFA Champions League</title>
     <link rel="shortcut icon" href="images/uefa_logo.png">
     <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Share+Tech+Mono&family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
@@ -17,6 +16,14 @@
   </head>
   <body>
     <header>
+
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div>
+          <a class="subtitulo">Simulador UEFA Champions League 2022</a>
+          <a class="subtituloOpcion1">Simulador</a>
+          <a class="subtituloOpcion1">Como usarlo</a>
+        </div>
+      </nav> -->
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -40,8 +47,7 @@
     <body class="body_wallpaper">
       <br>
       <img class="iconChampions" src="images/uefa_logo.png" alt="Logo uefa champions league"><br>
-      <h1>GRUPO E</h1>
-      <p class="absolute">Last changes: <item id="ultimaModifPantalla"></item></p>
+      <p class="absolute">Last changes<br> <item id="ultimaModifPantalla"></item></p>
       <div>
         <table class="tabla">
           <tr>
@@ -93,7 +99,7 @@
           </table>
           <table class="MatchInfo">
             <tr>
-            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  <p class="MatchInfoNameStadium"> Camp Nou </p><img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha01"></item>  <item id="tempFecha01"></item>ºC - Barcelona, España</td>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon">  <p class="MatchInfoNameStadium"> Camp Nou </p><img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha01"></item>  <item class="tempFechas" id="tempFecha01"></item>ºC - Barcelona, España</td>
             </tr>
           </table>
         </div>
@@ -113,7 +119,7 @@
         </table>
         <table class="MatchInfo">
           <tr>
-          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"> <p class="MatchInfoNameStadium">  Estadio Olímpico Kiev</p><img onclick="customAlert(4)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha02"></item>  <item id="tempFecha02"></item>ºC - Kiev, Ucrania</td>
+          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"> <p class="MatchInfoNameStadium">  Estadio Olímpico Kiev</p><img onclick="customAlert(4)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha02"></item>  <item class="tempFechas" id="tempFecha02"></item>ºC - Kiev, Ucrania</td>
           </tr>
         </table>
         </div>
@@ -137,7 +143,7 @@
           </table>
           <table class="MatchInfo">
             <tr>
-            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="Nublado">  <p class="MatchInfoNameStadium"> Allianz Arena </p><img onclick="customAlert(2)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"><item id="tempIconFecha04"></item>  <item id="tempFecha04"></item> ºC - Múnich, Alemania</td>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="Nublado">  <p class="MatchInfoNameStadium"> Allianz Arena </p><img onclick="customAlert(2)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"><item id="tempIconFecha04"></item>  <item class="tempFechas" id="tempFecha04"></item> ºC - Múnich, Alemania</td>
             </tr>
           </table>
         </div>
@@ -158,7 +164,7 @@
           </table>
           <table class="MatchInfo">
             <tr>
-            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="Nublado">  <p class="MatchInfoNameStadium"> Estádio da Luz</p><img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"><item id="tempIconFecha03"></item>  <item id="tempFecha03"></item> ºC - Lisboa, Portugal</td>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="Nublado">  <p class="MatchInfoNameStadium"> Estádio da Luz</p><img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"><item id="tempIconFecha03"></item> <item class="tempFechas" id="tempFecha03"></item> ºC - Lisboa, Portugal</td>
             </tr>
           </table>
         </div>
@@ -183,7 +189,7 @@
           </table>
           <table class="MatchInfo">
             <tr>
-            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"><p class="MatchInfoNameStadium">Camp Nou</p><img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha05"></item>  <item id="tempFecha05"></item>ºC - Barcelona, España</td>
+            <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"><p class="MatchInfoNameStadium">Camp Nou</p><img onclick="customAlert(1)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha05"></item>  <item class="tempFechas" id="tempFecha05"></item>ºC - Barcelona, España</td>
             </tr>
           </table>
         </div>
@@ -204,7 +210,7 @@
         </table>
         <table class="MatchInfo">
           <tr>
-          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"> <p class="MatchInfoNameStadium"> Estádio da Luz</p><img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha06"></item>  <item id="tempFecha06"></item> ºC - Lisboa, Portugal</td>
+          <td class="MatchInfo"><img class="club_icon" src="images/estadio.png" alt="EstadioIcon"> <p class="MatchInfoNameStadium"> Estádio da Luz</p><img onclick="customAlert(3)" class="masInfoIcon" src="images/masInfo.png" alt="Click para ver Informacion del estadio"> <br><item id="tempIconFecha06"></item>  <item class="tempFechas" id="tempFecha06"></item> ºC - Lisboa, Portugal</td>
           </tr>
         </table>
       </div>
@@ -214,6 +220,7 @@
     </body>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="js/simuladorTAFA.js"></script>
     
     </main>
