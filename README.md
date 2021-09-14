@@ -17,7 +17,7 @@ Tambien se puede ver cuál es la ultima fecha en la que se realizó un cambio en
 
 E
 ### Home del Proyecto
-![Index](https://files.fm/thumb_show.php?i=p5e4nun4a)
+![Index](https://ibb.co/JjTfkTX)
 
 ## Posibles mejoras
 ***
