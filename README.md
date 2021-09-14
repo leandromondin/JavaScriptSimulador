@@ -17,7 +17,7 @@ Tambien se puede ver cuál es la ultima fecha en la que se realizó un cambio en
 
 E
 ### Home del Proyecto
-![Index](https://ibb.co/JjTfkTX)
+![Index](https://i.ibb.co/fdWh0Wm/Captura-de-Pantalla-2021-09-13-a-la-s-22-50-54.png)
 
 ## Posibles mejoras
 ***
