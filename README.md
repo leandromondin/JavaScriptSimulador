@@ -5,7 +5,7 @@ Proyecto del curso CoderHouse Java Script - Leandro Mondin | LM
 ## Ingresa a https://java-script-simulador-pearl.vercel.app/
 
 1. [Contenido](#contenido)
-2. [Next steps o mejoras](#Mejoras)
+2. [Next steps o mejoras](#mejoras)
 
 ### Contenido
 ***
@@ -15,11 +15,11 @@ A su vez, se conecta a la API openweathermap para obtener la temperatura y la nu
 Adicionalmente se disponibiliza la información de cada estadio (se puede ver haciendole click a la "i" de información localizadas al lado de los iconos de estadios).
 Tambien se puede ver cuál es la ultima fecha en la que se realizó un cambio en algún partido del fixture.
 
-E
-### Home del Proyecto
-![Index](https://files.fm/thumb_show.php?i=p5e4nun4a)
 
-## Posibles mejoras
+### Home del Proyecto
+![Index](https://i.ibb.co/fdWh0Wm/Captura-de-Pantalla-2021-09-13-a-la-s-22-50-54.png)
+
+### Mejoras
 ***
 
 * Que el simulador contenga los 6 partidos.
