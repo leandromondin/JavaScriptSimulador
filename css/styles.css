@@ -117,19 +117,15 @@ table, th, td {
   padding: 2vh;
   opacity: 0.9;
   background-color:     rgba(9, 38, 116, 0.349);
-  /* border: 6px solid red; */
 }
 
 .MatchInfo{
   width:90vw;
   text-align: center;
   padding: auto;
-  /* font-family: 'Roboto', sans-serif; */
   letter-spacing: 0;
-  /* margin-top: 4vh; */
   display: flex;
   flex-direction: row;
-  /* background-color: yellow; */
   height: 7vh;
 }
 
@@ -189,7 +185,7 @@ table, th, td {
   justify-content: center;
   margin: auto;
   height: 40vh;
-  width:55%;
+  width:48%;
 }
 
 
@@ -200,11 +196,11 @@ td {
 }
 
 th {
-    padding: 20px;
+    /* padding: 20px; */
     text-align: center;
     font-size: 2vh;
     color: rgba(255, 255, 255, 0.603);
-    
+    height: 1vh;
   }
 
 
@@ -238,7 +234,6 @@ th {
 
   table, th, td {
     border: 4px solid transparent;
-    /* border: 1px solid rgba(9, 11, 116, 0.561); */
     border-collapse: collapse;
   }
 
@@ -409,3 +404,112 @@ h1{
 .tempFechas{
   margin-left: 2vh;
 }
+
+
+
+@media only screen and (min-width: 100px) {
+  footer  {
+          width: 100%;
+          background-image: linear-gradient(to bottom, rgba(36, 190, 49, 0.6),#0b7559);
+          color:white;
+          display:flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 2vh;
+          text-align: center;
+  }
+          .footer__redesSociales  {
+              display:flex;
+              flex-direction: row;
+              justify-content: space-around;
+              width: 80vw;
+              
+              }
+              .footer__redesSociales img  {
+                                  margin-top: 2vw;
+                                  margin-bottom: 2vw;
+                                  height:3vh;
+                                  opacity: 0.7;
+                                  border-radius:100%;
+                                  }
+  
+              .footer__redesSocialesP {
+                              padding-left:1vw;
+                              padding-right:2vw;
+                              margin: 0; 
+                              margin-top: 10px;        
+                              }
+     
+  
+      .rules01{
+        text-align: justify;
+        margin: 4vh;
+        font-size: 1.9vh;
+      }
+      
+      .itemRules{
+        font-size: 90%;
+        text-align: justify;
+      }
+
+    }
+  
+  @media only screen and (min-width: 480px) and (min-width: 768px) {
+      footer  {
+          width: 100vw;
+        }
+          .footer__redesSociales  {
+              font-size: 2vh;
+              width: 100vw;
+          }  
+
+          .rules01{
+            text-align: justify;
+            margin: 4vh;
+          }
+          
+          .itemRules{
+            font-size: 90%;
+            text-align: center;
+          }
+          
+  }
+
+  
+  @media only screen and (min-width: 768px) {
+      footer  {
+              margin-top: 35vh;  
+              width: 100%;
+              height: 6vh;
+              background-image: linear-gradient(to bottom, rgba(36, 190, 49, 0.6),#0b7559);
+              color:white;
+              display:flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              font-size: 1vw;
+              text-align: center;
+      }
+              .footer__redesSociales  {
+                  display:flex;
+                  flex-direction: row;
+                  width: 50vw;
+                  }
+  
+                  .footer__redesSociales img  {
+                                      margin: 0;
+                                      opacity: 0.9;
+                                      border-radius:40%;
+                                      height:3vh;
+                                      font-size: 2vh;
+                                      }
+                  
+                  .footer__redesSocialesP {
+                      padding-left:2vw;
+                      padding-right:2vw;
+                      margin: 0; 
+                      }
+          }
+  
+  
