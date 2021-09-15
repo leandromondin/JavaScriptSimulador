@@ -1,7 +1,4 @@
-
-
 function valideKey(evt){// Validar que sean numeros los que ingresan
-    // code is the decimal ASCII representation of the pressed key.
     let code = (evt.which) ? evt.which : evt.keyCode;
     if(code==8) { // backspace.
       return true;
@@ -12,41 +9,7 @@ function valideKey(evt){// Validar que sean numeros los que ingresan
     }
 }
 
-
-// Responsive
-// reglamento
-// readme
-// limpieza de codigo
-
-
-$("#fecha1SeleccionadaTexto").click(function() {
-    $(".fecha1Seleccionada").show(1);
-    $("#fecha1SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
-    $(".fecha2Seleccionada").hide(1);
-    $("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
-    $(".fecha3Seleccionada").hide(1);
-    $("#fecha3SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
-    });
-
-$("#fecha2SeleccionadaTexto").click(function() {
-    $(".fecha2Seleccionada").show(1);
-    $("#fecha2SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
-    $(".fecha1Seleccionada").hide(1);
-    $("#fecha1SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
-    $(".fecha3Seleccionada").hide(1);
-    $("#fecha3SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
-    });
-
-$("#fecha3SeleccionadaTexto").click(function() {
-    $(".fecha3Seleccionada").show(1);
-    $("#fecha3SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
-    $(".fecha1Seleccionada").hide(1);
-    $("#fecha1SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
-    $(".fecha2Seleccionada").hide(1);
-    $("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
-
-    });    
-
+// Fecha 1 mostrada al inicio
 $(".fecha1Seleccionada").show(1);
 $("#fecha1SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
 $(".fecha2Seleccionada").hide(1);
@@ -54,9 +17,40 @@ $("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
 $(".fecha3Seleccionada").hide(1);
 $("#fecha3SeleccionadaTexto").animate({opacity:'0.7'});
 
-function customAlert(option){
+// Cuando una fecha se selecciona, las demás se deben ocultar
+$("#fecha1SeleccionadaTexto").click(function() 
+    {
+        $(".fecha1Seleccionada").show(1);
+        $("#fecha1SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
+        $(".fecha2Seleccionada").hide(1);
+        $("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+        $(".fecha3Seleccionada").hide(1);
+        $("#fecha3SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    });
 
-    
+$("#fecha2SeleccionadaTexto").click(function()
+    {
+        $(".fecha2Seleccionada").show(1);
+        $("#fecha2SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
+        $(".fecha1Seleccionada").hide(1);
+        $("#fecha1SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+        $(".fecha3Seleccionada").hide(1);
+        $("#fecha3SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    });
+
+$("#fecha3SeleccionadaTexto").click(function() 
+    {
+        $(".fecha3Seleccionada").show(1);
+        $("#fecha3SeleccionadaTexto").animate({opacity:'1',fontSize:'2.3vh'});
+        $(".fecha1Seleccionada").hide(1);
+        $("#fecha1SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+        $(".fecha2Seleccionada").hide(1);
+        $("#fecha2SeleccionadaTexto").animate({opacity:'0.7',fontSize:'2vh'});
+    });    
+
+
+// Pop up de los estadios cuando hacemos click en "i"
+function customAlert(option){
     if (option===1){
         swal({
             title: "CAMP NOU",
@@ -64,7 +58,6 @@ function customAlert(option){
             icon:"images/barca_stadium.png"
           })
     }
-
     if (option===2){
         swal({
             title: "ALLIANZ ARENA",
@@ -72,7 +65,6 @@ function customAlert(option){
             icon:"images/bayer_stadium.jpeg"
           })
     }
-
     if (option===3){
         swal({
             title: "ESTADIO DA LUZ",
@@ -80,7 +72,6 @@ function customAlert(option){
             icon:"images/benfica_stadium.jpeg"
           })
     }
-
     if (option===4){
         swal({
             title: "ESTADIO OLIMPICO KIEV",
@@ -88,20 +79,11 @@ function customAlert(option){
             icon:"images/kiev_stadium.jpeg"
           })
     }
-    
-
-
 }
-// Inicialización de constantes
-const CANTIDAD_EQUIPOS = 4;
-const URLGET_EQUIPOS = ["Barcelona,es","Kiev,ukr","Lisboa,por","Munich,ale","Barcelona,es","Lisboa,por"];
-const URLGET01 = "https://api.openweathermap.org/data/2.5/weather?q=";
-const URLGET02 = "&APPID=5f5132a91961cf29f9cb6c151187bea3";
-let FIRST_TIME_FLAG = true;
-let FIRST_TIME_FLAG_2 = true;
 
 
-// Obtengo las temperaturas (con los iconos) correspondientes 
+
+// Obtengo las temperaturas con los iconos correspondientes 
 $(document).ready(function() {
     for (let i = 0; i < 6; i++) {
         URLGET = URLGET01 + URLGET_EQUIPOS[i] + URLGET02;
@@ -115,28 +97,31 @@ $(document).ready(function() {
                 // console.log("Temperatura actual:" + new_temperatura);
                 let id = "#tempFecha0" + (i + 1);
                 let id_icon = "#tempIconFecha0" + (i + 1);
-                
                 $(id).append(new_temperatura);
-           
-
                 if (response.clouds.all >= 80){
                     $(id_icon).append("<img class='club_icon' src='images/rain.png' alt='Lluvioso'>");
                 }
-
                 if (response.clouds.all > 30 && response.clouds.all < 80){
                     $(id_icon).append("<img class='club_icon' src='images/cloudy.png' alt='Nublado'></img>");
                 }
                 if (response.clouds.all <= 30){
                     $(id_icon).append("<img class='club_icon' src='images/sunny.png' alt='Soleado'></img>");
                 }
-            
             }
-            
         })
     }           
-})   
+    })   
 
 
+// Inicialización de constantes
+const CANTIDAD_EQUIPOS = 4;
+const URLGET_EQUIPOS = ["Barcelona,es","Kiev,ukr","Lisboa,por","Munich,ale","Barcelona,es","Lisboa,por"];
+const URLGET01 = "https://api.openweathermap.org/data/2.5/weather?q=";
+const URLGET02 = "&APPID=5f5132a91961cf29f9cb6c151187bea3";
+let FIRST_TIME_FLAG = true;
+let FIRST_TIME_FLAG_2 = true;
+
+// Funciones que hacen parpadear a los 2 equipos clasificados (los primeros 2 de la tabla)
 function bounceUp(){
     FIRST_TIME_FLAG = false;
     $('#Team01').animate({opacity:'1',fontColor:'red'}, 500, bounceDown);
@@ -182,126 +167,51 @@ class Equipo{
         this.goles_contra = this.goles_contra_fixture[0] + this.goles_contra_fixture[1] + this.goles_contra_fixture[2];
         this.partidos_jugados = this.partidos_jugados_fixture[0] + this.partidos_jugados_fixture[1] + this.partidos_jugados_fixture[2];
         this.dif_gol = this.goles_favor - this.goles_contra;
-
-    }
-    gano_partido(){//Este metodo nos permitirá sumar un partido ganado.
-        this.partidos_ganados++;
-        actualizacion_puntos()
-    }   
-    empato_partido(){//Este metodo nos permitirá sumar un partido empatado.
-        this.partidos_empatados++;
-        actualizacion_puntos()
-    }
-
-}
-
-function validar_nombre_equipo(i){//Para validar que solo sean los nombres de equipos argentinos
-    let flag=0;
-    while(flag==0){
-        let nombre_equipo = prompt('Ingrese equipo numero ' + i +".\n (opciones disponibles > Racing | Boca | River)");
-        if(isNaN(nombre_equipo) && nombre_equipo != null && nombre_equipo != "" && (nombre_equipo.toLowerCase() =='racing'||nombre_equipo.toLowerCase() =='boca'||nombre_equipo.toLowerCase() =='river')){
-            return nombre_equipo;
-            }
-        else{
-            alert('Equipo ingresado invalido.');
-            continue;
-        }
     }
 }
-
-
 
 
 function mostrarTabla(){//Funcion mostrar tabla con equipos
-    console.log("Equipos sin ordenar y puntaje anterior");
-    console.log(equipos);
     actualizarPuntos();
-    
-    // equipos.sort((a, b) => b.puntos - a.puntos);
-
-    equipos.sort( (a, b) => {
-        if(a.puntos > b.puntos) {
-          return -1;
-        }
-        if(a.puntos < b.puntos) {
-          return 1;
-        }
-        if (a.dif_gol > b.dif_gol) {
-          return -1;
-        }
-        if (a.dif_gol < b.dif_gol) {
-          return 1;
-        }
-
-        if (a.goles_favor > b.goles_favor) {
-            return -1;
-          }
-          if (a.goles_favor < b.goles_favor) {
-            return 1;
-          }
+    // Ordenar equipos por puntuacion, diferencia de goles y goles a favor (en ese orden)
+    equipos.sort( (a, b) => 
+        {
+        if(a.puntos > b.puntos) {return -1;}
+        if(a.puntos < b.puntos) {return 1;}
+            if (a.dif_gol > b.dif_gol) {return -1;}
+            if (a.dif_gol < b.dif_gol) {return 1;}
+                if (a.goles_favor > b.goles_favor) {return -1;}
+                if (a.goles_favor < b.goles_favor) {return 1;}
+                    return 0;
+        });
 
 
-        return 0;
-      });
-
-
-    console.log("Equipos ordenados");
-    console.log(equipos);
 
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         let elementTable = document.getElementById ("pointsTeam0" + (i+1));
-
         $("#DGTeam0" + (i+1)).first().empty();
         $("#DGTeam0" + (i+1)).append(equipos[i].dif_gol);
-
         $("#GFTeam0" + (i+1)).first().empty();
         $("#GFTeam0" + (i+1)).append(equipos[i].goles_favor);
-
         $("#GCTeam0" + (i+1)).first().empty();
         $("#GCTeam0" + (i+1)).append(equipos[i].goles_contra);
-
         $("#matchsTeam0" + (i+1)).first().empty();
         $("#matchsTeam0" + (i+1)).append(equipos[i].partidos_jugados);
-        
         $("#nameTeam0" + (i+1)).first().empty();
         $("#nameTeam0" + (i+1)).append(equipos[i].nombre);
-
         while (elementTable.firstChild) {
             elementTable.removeChild(elementTable.firstChild);
         }
         let nodoPuntosEquipo = document.createTextNode(equipos[i].puntos);
         elementTable.appendChild(nodoPuntosEquipo);
-        // console.log("pointsTeam0" + (i+1));
+        $("#pointsTeam0" + (i+1)).animate({fontSize:'3.5vh'}, 100,function(){});
+        $("#pointsTeam0" + (i+1)).animate({fontSize:'3vh'}, 400,function(){});
+    }
 
-        $("#pointsTeam0" + (i+1)).animate({  
-            // opacity:'0.7',
-            fontSize:'3.5vh'
-        }, 
-        100,            
-            function(){       
-            });
-
-        $("#pointsTeam0" + (i+1)).animate({  
-            // opacity:'1',
-            fontSize:'3vh'
-        }, 
-            400,            
-            function(){       
-            });
-        
-    }  
-    
     updateIcons();
-
-    if (FIRST_TIME_FLAG){
-        bounceUp();
+    if (FIRST_TIME_FLAG){bounceUp();}
+    if (FIRST_TIME_FLAG_2){bounceUp2();}
     }
-
-    if (FIRST_TIME_FLAG_2){
-        bounceUp2();
-    }
-    
-}
 
 
 let equiposIniciales = {"BARCELONA":"<img  class='club_icon' src='images/club_icons/barca.png' alt='Logo del club FC BARCELONA'>",
@@ -313,19 +223,13 @@ let equiposIniciales = {"BARCELONA":"<img  class='club_icon' src='images/club_ic
 function updateIcons(){
     $(club_icon01).first().empty();
     $(club_icon01).append(equiposIniciales[equipos[0].nombre]);
-    
     $(club_icon02).first().empty();
     $(club_icon02).append(equiposIniciales[equipos[1].nombre]);
-  
     $(club_icon03).first().empty();
     $(club_icon03).append(equiposIniciales[equipos[2].nombre]);
-    
     $(club_icon04).first().empty();
     $(club_icon04).append(equiposIniciales[equipos[3].nombre]);
-
 }
-
-
 
 function actualizarPuntos(){
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
@@ -334,14 +238,11 @@ function actualizarPuntos(){
 }
 
 
-
-
 const equipos = []; //Instancio y creo todos los equipos que necesito como array de equipos (variable global)
 for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
     const equipo = new Equipo(); 
     equipos.push(equipo);//Agrego un equipo al array de equipos del torneo.
 }
-
 equipos[0].nombre = "BARCELONA";
 equipos[1].nombre = "BAYER MUNICH";
 equipos[2].nombre = "BENFICA";
@@ -350,23 +251,19 @@ equipos[3].nombre = "DYNAMO KYIV";
 
 function conseguirIDBARCELONA(){
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
-        console.log(equipos[i].nombre)
         if (equipos[i].nombre==="BARCELONA")
         {return i;}}
     }
-
 function conseguirIDBayer(){
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         if (equipos[i].nombre==="BAYER MUNICH")
         {return i;}}
     }
-
 function conseguirIDDynamo(){
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         if (equipos[i].nombre==="DYNAMO KYIV")
         {return i;}}
     }
-
 function conseguirIDBenfica(){
     for (let i = 0; i < CANTIDAD_EQUIPOS; i++) {
         if (equipos[i].nombre==="BENFICA")
@@ -378,13 +275,10 @@ const gfBarcaP1  = document.getElementById("P1-BARCA-GF");
 const gfBayerP1  = document.getElementById("P1-BAYER-GF");
 gfBarcaP1.addEventListener('change', fecha11Update)
 gfBayerP1.addEventListener('change', fecha11Update)
-function fecha11Update(event){
-    console.log(equipos);
-    let i_Barca = conseguirIDBARCELONA();
-    console.log("EL id del barca es " + i_Barca);
-    let i_Bayer = conseguirIDBayer();
-    console.log("EL id del bayer es " + i_Bayer);
 
+function fecha11Update(event){
+    let i_Barca = conseguirIDBARCELONA();
+    let i_Bayer = conseguirIDBayer();
     if (gfBarcaP1.value && gfBayerP1.value){
         if (gfBarcaP1.value>gfBayerP1.value){// console.log("Gano el barca");
             equipos[i_Barca].fixture[0] = 3;
@@ -415,12 +309,10 @@ const gfDynamoP1  = document.getElementById("P1-DYNAMO-GF");
 const gfBenficaP1  = document.getElementById("P1-BENFICA-GF");
 gfDynamoP1.addEventListener('change', fecha12Update)
 gfBenficaP1.addEventListener('change', fecha12Update)
-function fecha12Update(event){
-    let i_Dynamo = conseguirIDDynamo();
-    console.log("EL id del Dynamo es " + i_Dynamo);
-    let i_Benfica = conseguirIDBenfica();
-    console.log("EL id del benfica es " + i_Benfica);
 
+function fecha12Update(event){
+    let i_Dynamo = conseguirIDDynamo();//console.log("EL id del Dynamo es " + i_Dynamo);
+    let i_Benfica = conseguirIDBenfica();
     if (gfDynamoP1.value && gfBenficaP1.value){
         if (gfDynamoP1.value>gfBenficaP1.value){// console.log("Gano el barca");
             equipos[i_Dynamo].fixture[0] = 3;
@@ -445,8 +337,6 @@ function fecha12Update(event){
     }
 }
 
-
-
 // Logica de comparacion Fecha 2 -Partido 1 del Fixture
 const gfBenficaP2  = document.getElementById("P2-BENFICA-GF");
 const gfBarcaP2  = document.getElementById("P2-BARCA-GF");
@@ -456,7 +346,6 @@ gfBarcaP2.addEventListener('change', fecha21Update)
 function fecha21Update(event){
     let i_Barca = conseguirIDBARCELONA();
     let i_Benfica = conseguirIDBenfica();
-
     if (gfBenficaP2.value && gfBarcaP2.value){
         if (gfBenficaP2.value>gfBarcaP2.value){
             equipos[i_Benfica].fixture[1] = 3;
@@ -481,7 +370,6 @@ function fecha21Update(event){
         guardarFecha();
     }
 }
-
 
 // Logica de comparacion Fecha 2 -Partido 2 del Fixture
 const gfBayerP2  = document.getElementById("P2-BAYER-GF");
@@ -546,7 +434,6 @@ function fecha31Update(event){
         }
         equipos[i_Barca].partidos_jugados_fixture[2] = 1;
         equipos[i_Dynamo].partidos_jugados_fixture[2] = 1;
-        console.log(equipos);
 
         equipos[i_Barca].goles_favor_fixture[2] = parseInt(gfBarcaP3.value);
         equipos[i_Dynamo].goles_favor_fixture[2] = parseInt(gfDynamoP3.value);
@@ -598,22 +485,10 @@ function fecha32Update(event){
     }
 }
 
-function mostrarUltimaModificacionEnPantalla(){
-    let aux = JSON.parse(localStorage.getItem("Administrador"))["hora"];
-    let fechaEnPantalla = document.getElementById ("ultimaModifPantalla");
-    while (fechaEnPantalla.firstChild) {
-        fechaEnPantalla.removeChild(fechaEnPantalla.firstChild);
-    }
-    let nodofechaEnPantalla = document.createTextNode(aux);
-    fechaEnPantalla.appendChild(nodofechaEnPantalla);
-}
-
-
 
 function guardarFecha(){
     let ahora = Date.now();
     let now = (new Date(ahora)).toUTCString();
-
     let fechaEnPantalla = document.getElementById ("ultimaModifPantalla");
     
     while (fechaEnPantalla.firstChild) {
@@ -621,6 +496,5 @@ function guardarFecha(){
     }
     let nodofechaEnPantalla = document.createTextNode(now);
     fechaEnPantalla.appendChild(nodofechaEnPantalla);
- 
 
 }
